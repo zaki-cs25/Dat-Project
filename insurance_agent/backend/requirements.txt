@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langchain
+langgraph
+langchain-openai
+python-dotenv
+pyyaml
+pypdf
+python-multipart
+reportlab
+httpx

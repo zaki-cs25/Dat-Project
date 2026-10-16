@@ -1,0 +1,39 @@
+# LLM Router Configuration
+# First entry is the primary backend; others are fallbacks.
+
+backends:
+  # Primary: your local vLLM server
+  - name: "vllm-local"
+    base_url: "${LLM_BASE_URL}"
+    api_key: "${LLM_API_KEY}"
+    model: "${LLM_MODEL}"
+
+  # Gemini API
+  - name: "gemini"
+    base_url: "${GEMINI_BASE_URL}"
+    api_key: "${GEMINI_API_KEY}"
+    model: "${GEMINI_MODEL}"
+
+
+  # Fallback 1: Hugging Face free router (uncomment to enable)
+  # - name: "huggingface"
+  #   base_url: "https://router.huggingface.co/v1"
+  #   api_key: "${HF_TOKEN}"
+  #   model: "openai/gpt-oss-20b:nebius"
+
+  # Fallback 2: OpenRouter (uncomment to enable)
+  # - name: "openrouter"
+  #   base_url: "https://openrouter.ai/api/v1"
+  #   api_key: "${OPENROUTER_API_KEY}"
+  #   model: "anthropic/claude-3.5-sonnet"
+
+  # Fallback 3: Any other OpenAI-compatible endpoint
+  # - name: "custom"
+  #   base_url: "http://your-server:port/v1"
+  #   api_key: "your-key"
+  #   model: "your-model"
+
+# Default LLM settings (applied to all backends unless overridden)
+defaults:
+  temperature: 0.7
+  max_retries: 2

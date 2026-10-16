@@ -1,0 +1,53 @@
+# Earlier grounded-mode evaluation history
+
+Archived on 2026-10-09. Counts, source coverage and UI descriptions below describe earlier runs; see the [current evaluation report](../EVALUATION.md) for the active configuration. The current protocol report was regenerated for enriched mode.
+
+
+The care library uses only five user-supplied Markdown files in `md_care_documents/`, described by `src/python/central_park/data/icmr_markdown_manifest.json`. The original PDFs and extracted local passages are removed. Python inventories workflows and splits complete structural blocks; GPT-6 Luna agents propose bounded recommendation selections. The primary agent did not open the manuals. Source checksums are unchanged. Classification is not clinical approval.
+
+Initial preprocessing on 2026-10-08 produced 168 candidate workflows and 902 review rows: 30 proposed include, 388 exclude, 94 supporting-context and 390 needs-review. Eight passages required safer boundaries. Of the 902 rows, 862 corresponded exactly to agent decisions and 40 were verified automatic editorial/reference exclusions. At that point, all five documents were unreviewed, passages were unselected/unreviewed, new catalogue entries were disabled and no real corpus passages were indexed. Workflow/condition coverage and false-positive/false-negative classification rates remain unscored until independent review.
+
+Subsequently, the user approved the three cleaned hypertension selections: targets/orthostatic monitoring (lines 43–47), medication-adherence review (the complete selected cell on line 90), and lifestyle recommendations (the complete selected cell on line 94). The primary agent inspected only that explicitly approved, bounded review document, not the original manuals. These three selections were indexed with the user's embedding endpoint; the remainder of the manuals is not indexed. The source checksum is `d840e9cbb77148dd74312d8d6a0b6d4e6acc9d1686f044f5f4d9991db9c3cf5a`; the initial indexed version ended in `62987e877e052977`. Full mixed table rows remain private audit material; only the reviewed complete cells enter retrieval. User approval is not independent clinical validation.
+
+Software verification on 2026-10-08: 131 Python tests passed; the frontend production build passed; all 20 isolated Docker/IRIS integration tests passed. Checks include expanded reviewed condition matching and generation, rejection of unapproved mappings, exact source/context citations, resumable classification, malformed/table-fragment decisions, source-version invalidation, qualified duplicate consolidation, old-source exclusion, generation/restart/retry and configurable embeddings. Tests use synthetic evidence and scripted models, not the real manuals or a live clinical model. See [reproduction steps](../INTEGRATION.md).
+
+Latest verification on 2026-10-08: 160 Python tests and all 20 isolated Docker/IRIS integration tests passed after complete-cell selection, interview provenance and compatible-endpoint truncation fixes. The frontend production build previously passed after the citation changes; subsequent changes were confined to the backend/configuration/documentation. The current IRIS Docker image also built successfully with FHIR readiness checks enabled.
+
+A limited live smoke test used the seeded `synthetic-hypertension` patient, the user's embedding endpoint and `unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q8_K_XL` through the user's compatible chat endpoint. The three answers described routine hypertension follow-up, no associated symptoms and no exertional discomfort. QuestionnaireResponse `115` produced assessment `117` with `see-gp`, no red flags and no detected medication safety issues. Job `cp-d4e9ef74382f9e91d2bfac79e41e9ee971db29d3` initially failed because the model exhausted its completion budget, truncating JSON; no invalid plan was saved. After configuring the endpoint template with `enable_thinking=false`, explicit retry completed with monitoring, medication-review and lifestyle activities, citing all three approved passages. The persisted CarePlan has `status=draft`; activities are `not-started`. Reopening returned the identical saved draft, and repeated enqueue returned the same completed job. No clinical accuracy score was assigned.
+
+The earlier emergency result on `demo-patient-1` exposed a provenance error: symptoms from an earlier chest-pain interview were described as current-encounter observations. Observation dates, encounter references and boolean/integer values now survive trimming; the reviewer also receives every current answer. A read-only live reassessment of that original routine questionnaire correctly described current denials and recent conflicting historical observations, and retained urgent review because that history remains unresolved. Existing records were not deleted or overwritten to force a routine result. Synthetic tests verify that actual current red flags and medication-safety findings still enforce the emergency floor.
+
+Inspection of the first completed draft exposed additional problems missed by its model reviewer: age 54 despite birth date 1970-04-01 and generation date 2026-10-08; unconditional every-visit medication review despite the source's high-BP prerequisite and no recorded BP; and UTF-8 bytes misdecoded in indexed evidence. The synthetic record actually contains no medications or observations, so requesting that information is justified; an empty condition search does not confirm absence of comorbidities. Generation and review now receive calculated age, date, gender, resource counts and explicit absence semantics, plus stricter source-prerequisite instructions. Explicit inconsistent patient-age statements are rejected deterministically. The REST dispatcher now converts JSON input streams from UTF-8. Republish created active version `d840e9cbb77148dd74312d8d6a0b6d4e6acc9d1686f044f5f4d9991db9c3cf5a-c1ec856def39ae06`, preserving the prior index and saved plan.
+
+After these changes, QuestionnaireResponse `120` produced assessment `122` and completed job `cp-f9746b0f30f463c7c2e2d574bf492a197136cdf1`. Assessment remained `see-gp` with no red flags/issues. The saved draft has one lifestyle activity citing the selected line-94 cell, identifies missing BP/medication/comorbidity information, correctly states age 56, and omits unconditional medication review. Reopening returned the unchanged draft with clean Unicode evidence and FHIR `status=draft` / `not-started` activities. The model's wording about BP control versus target selection remains a clinical-review concern; do not report complete semantic correctness or clinical accuracy. The original draft was not overwritten. Latest software verification: **165 Python tests and all 21 isolated Docker/IRIS integration tests passed**, including exact Unicode round trips, repeated imports, calculated age and threshold-review rejection. These checks do not substitute for clinical review.
+
+The reproducible set in `src/python/tests/fixtures/care-evaluation.json` has 19 explicitly synthetic cases: one per supported condition, diabetes/hypertension/CKD and asthma/COPD combinations, urgent and emergency cases without evidence, unsupported conditions, missing observations, FHIR failure, malformed output, fabricated citation, prohibited prescribing and conflicting recommendations. Original demo fixtures are retained; new FHIR interview fixtures are separately labelled synthetic.
+
+Before the enrichment change, the 19-case grounded protocol used scripted responses and synthetic evidence and produced the following historical results. The current report file has been replaced by the paired enriched run described above:
+
+| Measure | Observed result |
+|---|---|
+| Cases | 19 |
+| Completed protocol drafts | 11 |
+| Explicit insufficient-evidence outcomes | 3 |
+| Deliberately failed outcomes | 5 |
+| Supported-condition citation coverage in successful protocol cases | 8/8 single conditions; both multimorbidity cases covered |
+| Fabricated citations accepted | 0 |
+| Prohibited prescribing content accepted | 0 |
+| Urgent instruction preserved without routine evidence | Both urgent and emergency cases |
+| Unsupported clinical recommendations | Unscored; requires independent clinical source/applicability assessment |
+
+The artificial model and evidence establish software behavior only. They do not establish real evidence relevance, semantic support, medical correctness or clinical accuracy. A separate reviewer call is a software safeguard, not an independent clinical accuracy measurement.
+
+Software verification on 2026-10-01: 82 Python tests passed; the frontend production build passed before the embedding-only changes; all 14 isolated Docker/IRIS integration tests passed. The IRIS checks used a separate FHIR R4 endpoint and dedicated test account. They exercised reviewed-document activation and rollback, interview-to-draft persistence, restart recovery, saved citation versions and explicit retry. Additional checks covered native and custom embedding selection, 384/768 vector dimensions, model isolation, legacy-vector reindexing, credential rotation, Ollama requests, malformed responses and retaining urgent instructions after a reindexing failure. The installer supplies the current R4 metadata package and enables password authentication with the correct flag. See [reproduction steps](../INTEGRATION.md).
+
+The full real-model evaluation across the five-file Markdown corpus has not run. The live hypertension checks verify software behavior and persisted context only. Do not report broad evidence coverage or clinical recommendation support as measured. Software checks using synthetic Markdown evidence do not establish clinical accuracy or coverage of the manuals.
+
+For a live run, publish the corpus and run:
+
+```bash
+PYTHONPATH=src/python .venv/bin/python -m central_park.evaluate_careplans \
+  --live --compare-context --output md_care_documents/.preparation/evaluation-live.json
+```
+
+Evaluate live outputs separately for: retrieved condition context coverage; clinical appropriateness of model-generated and context-informed recommendations; proposed timing and ignored exceptions; prohibited drugs/doses/new diagnoses; conflicting multimorbidity advice; urgent instruction retention; malformed/error behavior. Record the reviewer, document versions, configured model, test date and individual case judgments. Enriched mode permits uncited model knowledge; do not count missing citations as proof of an inappropriate recommendation. Keep unsupported clinical recommendations explicitly unscored until independent review is completed.

@@ -1,0 +1,210 @@
+{
+  "type-2-diabetes": {
+    "aliases": [
+      "type 2 diabetes",
+      "type 2 diabetes mellitus",
+      "diabetes mellitus type 2",
+      "type 2 diabetes (disorder)"
+    ],
+    "codes": [
+      [
+        "http://snomed.info/sct",
+        "44054006"
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "E11"
+      ]
+    ],
+    "code_prefixes": [
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "E11."
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10-cm",
+        "E11."
+      ]
+    ]
+  },
+  "hypertension": {
+    "aliases": [
+      "hypertension",
+      "essential hypertension",
+      "essential (primary) hypertension",
+      "hypertension (disorder)"
+    ],
+    "codes": [
+      [
+        "http://snomed.info/sct",
+        "38341003"
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "I10"
+      ]
+    ]
+  },
+  "asthma": {
+    "aliases": [
+      "asthma",
+      "asthma (disorder)"
+    ],
+    "codes": [
+      [
+        "http://snomed.info/sct",
+        "195967001"
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "J45"
+      ]
+    ],
+    "code_prefixes": [
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "J45."
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10-cm",
+        "J45."
+      ]
+    ]
+  },
+  "copd": {
+    "aliases": [
+      "copd",
+      "chronic obstructive pulmonary disease",
+      "copd (disorder)"
+    ],
+    "codes": [
+      [
+        "http://snomed.info/sct",
+        "13645005"
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "J44"
+      ]
+    ],
+    "code_prefixes": [
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "J44."
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10-cm",
+        "J44."
+      ]
+    ]
+  },
+  "hypothyroidism": {
+    "aliases": [
+      "hypothyroidism",
+      "hypothyroidism (disorder)",
+      "primary hypothyroidism",
+      "central hypothyroidism",
+      "secondary hypothyroidism"
+    ],
+    "codes": [
+      [
+        "http://snomed.info/sct",
+        "40930008"
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "E03.9"
+      ],
+      [
+        "http://snomed.info/sct",
+        "111566002"
+      ]
+    ],
+    "code_prefixes": [
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "E03."
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10-cm",
+        "E03."
+      ]
+    ]
+  },
+  "ckd": {
+    "aliases": [
+      "ckd",
+      "chronic kidney disease",
+      "ckd (disorder)",
+      "chronic kidney disease stage 1",
+      "chronic kidney disease stage 2",
+      "chronic kidney disease stage 3",
+      "chronic kidney disease stage 4",
+      "chronic kidney disease stage 5"
+    ],
+    "codes": [
+      [
+        "http://snomed.info/sct",
+        "709044004"
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "N18.9"
+      ]
+    ],
+    "code_prefixes": [
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "N18."
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10-cm",
+        "N18."
+      ]
+    ]
+  },
+  "stable-angina": {
+    "aliases": [
+      "stable angina",
+      "stable angina pectoris",
+      "stable angina (disorder)"
+    ],
+    "codes": [
+      [
+        "http://snomed.info/sct",
+        "233819005"
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "I20.8"
+      ]
+    ]
+  },
+  "heart-failure": {
+    "aliases": [
+      "heart failure",
+      "congestive heart failure",
+      "heart failure (disorder)"
+    ],
+    "codes": [
+      [
+        "http://snomed.info/sct",
+        "84114007"
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "I50.9"
+      ]
+    ],
+    "code_prefixes": [
+      [
+        "http://hl7.org/fhir/sid/icd-10",
+        "I50."
+      ],
+      [
+        "http://hl7.org/fhir/sid/icd-10-cm",
+        "I50."
+      ]
+    ]
+  }
+}

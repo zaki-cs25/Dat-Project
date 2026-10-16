@@ -1,0 +1,20 @@
+# Isolated IRIS database; never mounts the application's existing patient volume.
+services:
+  embedding-fixture:
+    image: python:3.12-slim
+    command: ["python", "/opt/embedding_fixture.py"]
+    ports:
+      - "127.0.0.1:52775:8080"
+    volumes:
+      - ./tests/integration/embedding_fixture.py:/opt/embedding_fixture.py:ro
+  iris:
+    image: ${CP_TEST_IRIS_IMAGE:-icmr-care-iris:integration}
+    working_dir: /home/irisowner
+    entrypoint: ["/tini", "--", "/iris-main"]
+    command: ["--ISCAgent", "false"]
+    ports:
+      - "127.0.0.1:52774:52773"
+    volumes:
+      - ./src/cls:/home/irisowner/central-park/src/cls:ro
+      - ./tests/objectscript:/opt/care-test:ro
+      - ./iris-config:/home/irisowner/central-park/iris-config:ro

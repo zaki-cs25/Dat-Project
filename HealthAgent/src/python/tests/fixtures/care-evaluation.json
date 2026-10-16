@@ -1,0 +1,2443 @@
+[
+  {
+    "case_id": "type-2-diabetes",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hypertension",
+    "synthetic": true,
+    "expected_conditions": [
+      "hypertension"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-hypertension",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Hypertension"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-hypertension-condition",
+          "subject": {
+            "reference": "Patient/synthetic-hypertension"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "hypertension",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "38341003",
+                "display": "hypertension"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-hypertension-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-hypertension"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established hypertension. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-hypertension-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-hypertension"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-hypertension-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "asthma",
+    "synthetic": true,
+    "expected_conditions": [
+      "asthma"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-asthma",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Asthma"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-asthma-condition",
+          "subject": {
+            "reference": "Patient/synthetic-asthma"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "asthma",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "195967001",
+                "display": "asthma"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-asthma-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-asthma"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established asthma. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-asthma-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-asthma"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-asthma-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "copd",
+    "synthetic": true,
+    "expected_conditions": [
+      "copd"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-copd",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Copd"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-copd-condition",
+          "subject": {
+            "reference": "Patient/synthetic-copd"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "copd",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "13645005",
+                "display": "copd"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-copd-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-copd"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established copd. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-copd-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-copd"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-copd-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hypothyroidism",
+    "synthetic": true,
+    "expected_conditions": [
+      "hypothyroidism"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-hypothyroidism",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Hypothyroidism"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-hypothyroidism-condition",
+          "subject": {
+            "reference": "Patient/synthetic-hypothyroidism"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "hypothyroidism",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "40930008",
+                "display": "hypothyroidism"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-hypothyroidism-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-hypothyroidism"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established hypothyroidism. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-hypothyroidism-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-hypothyroidism"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-hypothyroidism-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "ckd",
+    "synthetic": true,
+    "expected_conditions": [
+      "ckd"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-ckd",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Ckd"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-ckd-condition",
+          "subject": {
+            "reference": "Patient/synthetic-ckd"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "ckd",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "709044004",
+                "display": "ckd"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-ckd-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-ckd"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established ckd. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-ckd-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-ckd"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-ckd-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "stable-angina",
+    "synthetic": true,
+    "expected_conditions": [
+      "stable-angina"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-stable-angina",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Stable Angina"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-stable-angina-condition",
+          "subject": {
+            "reference": "Patient/synthetic-stable-angina"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "stable angina",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "233819005",
+                "display": "stable angina"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-stable-angina-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-stable-angina"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established stable angina. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-stable-angina-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-stable-angina"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-stable-angina-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "heart-failure",
+    "synthetic": true,
+    "expected_conditions": [
+      "heart-failure"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-heart-failure",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Heart Failure"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-heart-failure-condition",
+          "subject": {
+            "reference": "Patient/synthetic-heart-failure"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "heart failure",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "84114007",
+                "display": "heart failure"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-heart-failure-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-heart-failure"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established heart failure. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-heart-failure-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-heart-failure"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-heart-failure-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "diabetes-hypertension-ckd",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes",
+      "hypertension",
+      "ckd"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        },
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-hypertension-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "hypertension",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "38341003",
+                "display": "hypertension"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        },
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-ckd-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "ckd",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "709044004",
+                "display": "ckd"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "asthma-copd",
+    "synthetic": true,
+    "expected_conditions": [
+      "asthma",
+      "copd"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-asthma",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Asthma"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-asthma-condition",
+          "subject": {
+            "reference": "Patient/synthetic-asthma"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "asthma",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "195967001",
+                "display": "asthma"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        },
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-copd-condition",
+          "subject": {
+            "reference": "Patient/synthetic-asthma"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "copd",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "13645005",
+                "display": "copd"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-asthma-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-asthma"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established asthma. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-asthma-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-asthma"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-asthma-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "urgent-no-evidence",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "urgent",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    },
+    "fault": "no-evidence"
+  },
+  {
+    "case_id": "emergency-no-evidence",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "stat",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    },
+    "fault": "no-evidence"
+  },
+  {
+    "case_id": "unsupported-condition",
+    "synthetic": true,
+    "expected_conditions": [],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "id": "unsupported",
+          "code": {
+            "text": "Unsupported synthetic condition"
+          },
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          }
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "missing-observations",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "fhir-failure",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    },
+    "fault": "fhir-failure"
+  },
+  {
+    "case_id": "malformed-output",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    },
+    "fault": "malformed-output"
+  },
+  {
+    "case_id": "fabricated-citation",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    },
+    "fault": "fabricated-citation"
+  },
+  {
+    "case_id": "prohibited-prescribing",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    },
+    "fault": "prohibited-prescribing"
+  },
+  {
+    "case_id": "conflicting-recommendations",
+    "synthetic": true,
+    "expected_conditions": [
+      "type-2-diabetes"
+    ],
+    "context": {
+      "patient": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "conditions": [
+        {
+          "resourceType": "Condition",
+          "id": "synthetic-type-2-diabetes-condition",
+          "subject": {
+            "reference": "Patient/synthetic-type-2-diabetes"
+          },
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed"
+              }
+            ]
+          },
+          "code": {
+            "text": "type 2 diabetes",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "type 2 diabetes"
+              }
+            ]
+          },
+          "onsetDateTime": "2020-01-01"
+        }
+      ],
+      "medications": [],
+      "allergies": [],
+      "observations": [],
+      "questionnaire": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "assessment": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      }
+    },
+    "fault": "conflicting-recommendations"
+  }
+]

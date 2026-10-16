@@ -1,0 +1,1078 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "synthetic-type-2-diabetes",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Type 2 Diabetes"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/synthetic-type-2-diabetes"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "synthetic-type-2-diabetes-condition",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "type 2 diabetes",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "type 2 diabetes"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/synthetic-type-2-diabetes-condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-type-2-diabetes-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established type 2 diabetes. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/synthetic-type-2-diabetes-intake"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-type-2-diabetes-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-type-2-diabetes"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-type-2-diabetes-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/synthetic-type-2-diabetes-assessment"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "synthetic-hypertension",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Hypertension"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/synthetic-hypertension"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "synthetic-hypertension-condition",
+        "subject": {
+          "reference": "Patient/synthetic-hypertension"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "hypertension",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "38341003",
+              "display": "hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/synthetic-hypertension-condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-hypertension-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-hypertension"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established hypertension. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/synthetic-hypertension-intake"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-hypertension-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-hypertension"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-hypertension-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/synthetic-hypertension-assessment"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "synthetic-asthma",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Asthma"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/synthetic-asthma"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "synthetic-asthma-condition",
+        "subject": {
+          "reference": "Patient/synthetic-asthma"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "asthma",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "195967001",
+              "display": "asthma"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/synthetic-asthma-condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-asthma-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-asthma"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established asthma. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/synthetic-asthma-intake"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-asthma-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-asthma"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-asthma-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/synthetic-asthma-assessment"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "synthetic-copd",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Copd"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/synthetic-copd"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "synthetic-copd-condition",
+        "subject": {
+          "reference": "Patient/synthetic-copd"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "copd",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "13645005",
+              "display": "copd"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/synthetic-copd-condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-copd-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-copd"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established copd. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/synthetic-copd-intake"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-copd-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-copd"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-copd-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/synthetic-copd-assessment"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "synthetic-hypothyroidism",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Hypothyroidism"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/synthetic-hypothyroidism"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "synthetic-hypothyroidism-condition",
+        "subject": {
+          "reference": "Patient/synthetic-hypothyroidism"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "hypothyroidism",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "40930008",
+              "display": "hypothyroidism"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/synthetic-hypothyroidism-condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-hypothyroidism-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-hypothyroidism"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established hypothyroidism. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/synthetic-hypothyroidism-intake"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-hypothyroidism-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-hypothyroidism"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-hypothyroidism-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/synthetic-hypothyroidism-assessment"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "synthetic-ckd",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Ckd"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/synthetic-ckd"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "synthetic-ckd-condition",
+        "subject": {
+          "reference": "Patient/synthetic-ckd"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "ckd",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "709044004",
+              "display": "ckd"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/synthetic-ckd-condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-ckd-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-ckd"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established ckd. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/synthetic-ckd-intake"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-ckd-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-ckd"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-ckd-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/synthetic-ckd-assessment"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "synthetic-stable-angina",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Stable Angina"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/synthetic-stable-angina"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "synthetic-stable-angina-condition",
+        "subject": {
+          "reference": "Patient/synthetic-stable-angina"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "stable angina",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "233819005",
+              "display": "stable angina"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/synthetic-stable-angina-condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-stable-angina-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-stable-angina"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established stable angina. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/synthetic-stable-angina-intake"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-stable-angina-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-stable-angina"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-stable-angina-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/synthetic-stable-angina-assessment"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "synthetic-heart-failure",
+        "birthDate": "1970-04-01",
+        "gender": "female",
+        "name": [
+          {
+            "given": [
+              "Synthetic"
+            ],
+            "family": "Heart Failure"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/synthetic-heart-failure"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "synthetic-heart-failure-condition",
+        "subject": {
+          "reference": "Patient/synthetic-heart-failure"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "heart failure",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "84114007",
+              "display": "heart failure"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/synthetic-heart-failure-condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "synthetic-heart-failure-intake",
+        "status": "completed",
+        "questionnaire": "Questionnaire/triage-intake",
+        "subject": {
+          "reference": "Patient/synthetic-heart-failure"
+        },
+        "authored": "2026-10-01T10:00:00Z",
+        "item": [
+          {
+            "linkId": "chief-complaint",
+            "text": "What is your current concern?",
+            "answer": [
+              {
+                "valueString": "SYNTHETIC DEMO: routine review of established heart failure. No acute worsening."
+              }
+            ]
+          },
+          {
+            "linkId": "onset",
+            "text": "When did this start?",
+            "answer": [
+              {
+                "valueString": "Stable for several months."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/synthetic-heart-failure-intake"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "synthetic-heart-failure-assessment",
+        "status": "active",
+        "intent": "proposal",
+        "priority": "routine",
+        "code": {
+          "text": "Synthetic completed assessment",
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306206005",
+              "display": "Referral to general practitioner"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/synthetic-heart-failure"
+        },
+        "authoredOn": "2026-10-01T10:00:01Z",
+        "note": [
+          {
+            "text": "QR: synthetic-heart-failure-intake"
+          },
+          {
+            "text": "HPI: SYNTHETIC DEMO completed interview. No acute red flags."
+          },
+          {
+            "text": "Action: Arrange clinician review."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/synthetic-heart-failure-assessment"
+      }
+    }
+  ]
+}

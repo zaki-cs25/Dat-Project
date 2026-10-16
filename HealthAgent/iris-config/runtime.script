@@ -1,0 +1,9 @@
+zn "CENTRALPARK"
+set sc = $system.OBJ.Load("/home/irisowner/central-park/src/cls/CentralPark/Install.cls", "ck")
+if 'sc write !,"Installer compile failed: ",$system.Status.GetErrorText(sc)
+if 'sc halt
+set sc = ##class(CentralPark.Install).ConfigureCredentials()
+if 'sc write !,"Service account configuration failed: ",$system.Status.GetErrorText(sc)
+if 'sc halt
+do $zf(-1, "touch /tmp/centralpark.runtime.ok")
+halt

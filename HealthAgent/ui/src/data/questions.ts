@@ -1,0 +1,232 @@
+import type { DynamicQuestion, TriageLevel } from "@/types";
+
+// The intake interview the patient answers themselves, on their own device.
+// First-person, plain language. linkIds mirror the seeded FHIR Questionnaire
+// (src/python/central_park/seed_module.py); the agent reads the answers back
+// and codes severity + symptoms into Observations, so the scale and the
+// checklist options must keep the keywords the backend looks for
+// (src/python/central_park/tools/fhir.py:_SYMPTOM_CODES).
+
+export type QuestionKind = "text" | "scale" | "choices";
+
+interface BaseQuestion {
+  linkId: string;
+  short: string;
+  prompt: string;
+  help?: string;
+}
+
+export interface TextQuestion extends BaseQuestion {
+  kind: "text";
+  placeholder?: string;
+}
+export interface ScaleQuestion extends BaseQuestion {
+  kind: "scale";
+  min: number;
+  max: number;
+  minLabel: string;
+  maxLabel: string;
+}
+export interface ChoicesQuestion extends BaseQuestion {
+  kind: "choices";
+  options: string[];
+  noneOption: string;
+}
+
+export type Question = TextQuestion | ScaleQuestion | ChoicesQuestion;
+
+export const QUESTIONS: readonly Question[] = [
+  {
+    kind: "text",
+    linkId: "chief-complaint",
+    short: "Main concern",
+    prompt: "What's bothering you today?",
+    help: "Describe what you're feeling, in your own words.",
+    placeholder: "e.g. My chest feels tight when I walk upstairs",
+  },
+  {
+    kind: "text",
+    linkId: "onset",
+    short: "When it started",
+    prompt: "When did it start, and how has it changed?",
+    help: "For example: two days ago, and it's been getting worse.",
+    placeholder: "e.g. Started yesterday, getting worse",
+  },
+  {
+    kind: "scale",
+    linkId: "severity",
+    short: "How bad",
+    prompt: "How bad is it right now?",
+    min: 1,
+    max: 10,
+    minLabel: "Barely noticeable",
+    maxLabel: "Worst imaginable",
+  },
+  {
+    kind: "choices",
+    linkId: "associated-symptoms",
+    short: "Other symptoms",
+    prompt: "Are you noticing any of these as well?",
+    help: "Select all that apply.",
+    options: [
+      "Shortness of breath",
+      "Chest tightness",
+      "Chest pain",
+      "Fever",
+      "Nausea",
+      "Dizziness",
+      "Weakness on one side",
+    ],
+    noneOption: "None of these",
+  },
+  {
+    kind: "text",
+    linkId: "history",
+    short: "Past history",
+    prompt: "Has this happened before, or any recent illness or injury?",
+    help: "Include anything from the last few weeks.",
+    placeholder: "e.g. Had something similar last year",
+  },
+  {
+    kind: "text",
+    linkId: "self-treatment",
+    short: "What you've tried",
+    prompt: "Have you tried anything for it yet?",
+    help: "Medicines, rest, home remedies — anything at all.",
+    placeholder: "e.g. Took paracetamol, didn't help",
+  },
+];
+
+// The fixed opening question. The adaptive interview always asks this first
+// (no round-trip), then hands control to the agent for every following question.
+export const SEED_QUESTION: Question = QUESTIONS[0];
+
+// Languages offered at intake. The agent writes every following question in the
+// chosen language; the opening question is translated here so the very first
+// screen is already localised.
+export const LANGUAGES = ["English", "Español", "中文", "Français", "العربية"] as const;
+export type Language = (typeof LANGUAGES)[number];
+
+const SEED_BY_LANGUAGE: Record<string, { prompt: string; help: string; placeholder: string }> = {
+  English: {
+    prompt: "What's bothering you today?",
+    help: "Describe what you're feeling, in your own words.",
+    placeholder: "e.g. My chest feels tight when I walk upstairs",
+  },
+  "Español": {
+    prompt: "¿Qué le molesta hoy?",
+    help: "Describa lo que siente, con sus propias palabras.",
+    placeholder: "p. ej. Siento opresión en el pecho al subir escaleras",
+  },
+  "中文": {
+    prompt: "您今天哪里不舒服？",
+    help: "请用自己的话描述您的感受。",
+    placeholder: "例如：上楼时感到胸闷",
+  },
+  "Français": {
+    prompt: "Qu'est-ce qui vous gêne aujourd'hui ?",
+    help: "Décrivez ce que vous ressentez, avec vos propres mots.",
+    placeholder: "ex. J'ai une oppression dans la poitrine en montant les escaliers",
+  },
+  "العربية": {
+    prompt: "ما الذي يزعجك اليوم؟",
+    help: "صف ما تشعر به بكلماتك الخاصة.",
+    placeholder: "مثال: أشعر بضيق في صدري عند صعود الدرج",
+  },
+};
+
+// The opening question, localised to the chosen language. The chief-complaint
+// question is always a text question, so a TextQuestion is safe to build here.
+export function seedQuestion(language: string): TextQuestion {
+  const t = SEED_BY_LANGUAGE[language] ?? SEED_BY_LANGUAGE.English;
+  const base = QUESTIONS[0] as TextQuestion;
+  return { ...base, prompt: t.prompt, help: t.help, placeholder: t.placeholder };
+}
+
+// Convert an agent-proposed question (snake_case, from /api/interview/next)
+// into the camelCase Question the interview UI renders. Missing fields fall
+// back to safe defaults so a sparse payload still renders.
+export function toQuestion(d: DynamicQuestion): Question {
+  const base = {
+    linkId: d.link_id,
+    short: d.short || d.prompt.slice(0, 24),
+    prompt: d.prompt,
+    help: d.help ?? undefined,
+  };
+  if (d.kind === "scale") {
+    return {
+      ...base,
+      kind: "scale",
+      min: d.min ?? 1,
+      max: d.max ?? 10,
+      minLabel: d.min_label ?? "Barely noticeable",
+      maxLabel: d.max_label ?? "Worst imaginable",
+    };
+  }
+  if (d.kind === "choices") {
+    const noneOption = d.none_option ?? "None of these";
+    // The interview UI appends noneOption itself, so strip any echo of it from
+    // the agent's options (case-insensitive) and de-duplicate — otherwise the
+    // patient sees "None of these" twice.
+    const seen = new Set<string>();
+    const options = (d.options ?? []).filter((o) => {
+      const t = o.trim().toLowerCase();
+      if (!t || t === noneOption.toLowerCase() || seen.has(t)) return false;
+      seen.add(t);
+      return true;
+    });
+    return { ...base, kind: "choices", options, noneOption };
+  }
+  return { ...base, kind: "text", placeholder: d.placeholder ?? undefined };
+}
+
+// Triage dispositions. Intentionally no pill/badge styling — severity reads
+// from a colored accent bar + colored label, so the UI stays calm and clinical.
+export interface LevelConfig {
+  label: string;
+  // Solid color for the vertical accent bar / small square swatch.
+  accent: string;
+  // Text color for the disposition label.
+  text: string;
+  // What this disposition means, in plain language for the patient.
+  guidance: string;
+}
+
+export const LEVEL_CONFIG: Record<TriageLevel, LevelConfig> = {
+  "self-care": {
+    label: "Next steps",
+    accent: "bg-emerald-500",
+    text: "text-emerald-700",
+    guidance: "Please return to reception. The clinical team will review your answers and advise you on the next steps.",
+  },
+  "see-gp": {
+    label: "Your consultation",
+    accent: "bg-amber-500",
+    text: "text-amber-700",
+    guidance: "Please check with reception about your consultation and where to wait.",
+  },
+  "urgent-care": {
+    label: "Speak to staff now",
+    accent: "bg-orange-500",
+    text: "text-orange-700",
+    guidance: "Please tell reception staff now that you need an urgent clinical review.",
+  },
+  ed: {
+    label: "Get staff assistance immediately",
+    accent: "bg-red-600",
+    text: "text-red-700",
+    guidance: "Alert reception or the nearest hospital staff member immediately. You need emergency assessment now. Do not wait in the routine queue.",
+  },
+};
+
+export function levelConfig(level: string | null | undefined): LevelConfig {
+  const key = (level ?? "see-gp").toLowerCase() as TriageLevel;
+  return (
+    LEVEL_CONFIG[key] ?? {
+      label: (level ?? "Unknown").toString(),
+      accent: "bg-slate-400",
+      text: "text-slate-700",
+      guidance: "",
+    }
+  );
+}

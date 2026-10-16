@@ -1,0 +1,19 @@
+.git
+.venv
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+.env
+.env.*
+*.pdf
+**/*.pdf
+care-documents
+**/care-documents
+md_care_documents
+**/md_care_documents
+
+# Benchmark sources and generated artifacts do not belong in application images
+benchmarks
+
+# Integration-only artificial embedding implementation
+tests/objectscript

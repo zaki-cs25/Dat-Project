@@ -1,0 +1,17 @@
+// Use only inside the isolated integration container.
+zn "CENTRALPARK"
+do ##class(Ens.Director).StopProduction()
+do $system.OBJ.LoadDir("/home/irisowner/central-park/src/cls","ck",,1)
+do $system.OBJ.LoadDir("/opt/care-test","ck",,1)
+do ##class(HS.FHIRServer.Installer).InstallNamespace()
+try { do ##class(HS.FHIRServer.Installer).InstallInstance("/care-test/fhir/r4","HS.FHIRServer.Storage.Json.InteractionsStrategy",$listbuild("hl7.fhir.r4.core@4.0.1")) } catch ex { write ex.DisplayString(),! }
+set config=##class(%Embedding.Config).%OpenId("central-park-openai")
+if '$isobject(config) set config=##class(%Embedding.Config).%New(),config.Name="central-park-openai"
+set config.EmbeddingClass="CareTest.Embedding",config.Configuration="{}",config.VectorLength=1536
+write config.%Save(),!
+zn "%SYS"
+if '##class(Security.Users).Exists("care-test-user") write ##class(Security.Users).Create("care-test-user","%All","CareSynthetic1!","Isolated synthetic care integration","CENTRALPARK",,,0,1),!
+set props("AutheEnabled")=32
+write ##class(Security.Applications).Modify("/care-test/fhir/r4",.props),!
+write ##class(Security.Applications).Modify("/centralpark",.props),!
+halt

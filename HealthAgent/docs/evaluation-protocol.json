@@ -1,0 +1,1951 @@
+{
+  "mode": "synthetic-protocol",
+  "generation_mode": "enriched",
+  "context_comparison": true,
+  "clinical_accuracy_established": false,
+  "cases": [
+    {
+      "case_id": "type-2-diabetes",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "type-2-diabetes"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "type-2-diabetes"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-type-2-diabetes"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-type-2-diabetes",
+            "condition": "type-2-diabetes",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-type-2-diabetes",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-type-2-diabetes",
+            "condition": "type-2-diabetes",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-type-2-diabetes",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "type-2-diabetes",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "type-2-diabetes"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "hypertension",
+      "expected_conditions": [
+        "hypertension"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "hypertension"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "hypertension"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-hypertension"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-hypertension",
+            "condition": "hypertension",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-hypertension",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-hypertension",
+            "condition": "hypertension",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-hypertension",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-hypertension-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "hypertension",
+      "expected_conditions": [
+        "hypertension"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "hypertension"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-hypertension-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "asthma",
+      "expected_conditions": [
+        "asthma"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "asthma"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "asthma"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-asthma"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-asthma",
+            "condition": "asthma",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-asthma",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-asthma",
+            "condition": "asthma",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-asthma",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-asthma-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "asthma",
+      "expected_conditions": [
+        "asthma"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "asthma"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-asthma-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "copd",
+      "expected_conditions": [
+        "copd"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "copd"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "copd"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-copd"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-copd",
+            "condition": "copd",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-copd",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-copd",
+            "condition": "copd",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-copd",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-copd-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "copd",
+      "expected_conditions": [
+        "copd"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "copd"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-copd-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "hypothyroidism",
+      "expected_conditions": [
+        "hypothyroidism"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "hypothyroidism"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "hypothyroidism"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-hypothyroidism"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-hypothyroidism",
+            "condition": "hypothyroidism",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-hypothyroidism",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-hypothyroidism",
+            "condition": "hypothyroidism",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-hypothyroidism",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-hypothyroidism-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "hypothyroidism",
+      "expected_conditions": [
+        "hypothyroidism"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "hypothyroidism"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-hypothyroidism-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "ckd",
+      "expected_conditions": [
+        "ckd"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "ckd"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "ckd"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-ckd"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-ckd",
+            "condition": "ckd",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-ckd",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-ckd",
+            "condition": "ckd",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-ckd",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-ckd-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "ckd",
+      "expected_conditions": [
+        "ckd"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "ckd"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-ckd-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "stable-angina",
+      "expected_conditions": [
+        "stable-angina"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "stable-angina"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "stable-angina"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-stable-angina"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-stable-angina",
+            "condition": "stable-angina",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-stable-angina",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-stable-angina",
+            "condition": "stable-angina",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-stable-angina",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-stable-angina-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "stable-angina",
+      "expected_conditions": [
+        "stable-angina"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "stable-angina"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-stable-angina-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "heart-failure",
+      "expected_conditions": [
+        "heart-failure"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "heart-failure"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "heart-failure"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-heart-failure"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-heart-failure",
+            "condition": "heart-failure",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-heart-failure",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-heart-failure",
+            "condition": "heart-failure",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-heart-failure",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-heart-failure-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "heart-failure",
+      "expected_conditions": [
+        "heart-failure"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "heart-failure"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-heart-failure-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "diabetes-hypertension-ckd",
+      "expected_conditions": [
+        "type-2-diabetes",
+        "hypertension",
+        "ckd"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "ckd",
+        "hypertension",
+        "type-2-diabetes"
+      ],
+      "retrieved_context_count": 3,
+      "retrieved_context_conditions": [
+        "ckd",
+        "hypertension",
+        "type-2-diabetes"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-type-2-diabetes",
+              "synthetic-hypertension",
+              "synthetic-ckd"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-type-2-diabetes",
+            "condition": "type-2-diabetes",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-type-2-diabetes",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          },
+          {
+            "passage_id": "synthetic-hypertension",
+            "condition": "hypertension",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-hypertension",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          },
+          {
+            "passage_id": "synthetic-ckd",
+            "condition": "ckd",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-ckd",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-type-2-diabetes",
+            "condition": "type-2-diabetes",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-type-2-diabetes",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          },
+          {
+            "passage_id": "synthetic-hypertension",
+            "condition": "hypertension",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-hypertension",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          },
+          {
+            "passage_id": "synthetic-ckd",
+            "condition": "ckd",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-ckd",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-ckd-condition",
+          "synthetic-hypertension-condition",
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "diabetes-hypertension-ckd",
+      "expected_conditions": [
+        "type-2-diabetes",
+        "hypertension",
+        "ckd"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "ckd",
+          "hypertension",
+          "type-2-diabetes"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-ckd-condition",
+          "synthetic-hypertension-condition",
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "asthma-copd",
+      "expected_conditions": [
+        "asthma",
+        "copd"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "asthma",
+        "copd"
+      ],
+      "retrieved_context_count": 2,
+      "retrieved_context_conditions": [
+        "asthma",
+        "copd"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-asthma",
+              "synthetic-copd"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-asthma",
+            "condition": "asthma",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-asthma",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          },
+          {
+            "passage_id": "synthetic-copd",
+            "condition": "copd",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-copd",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-asthma",
+            "condition": "asthma",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-asthma",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          },
+          {
+            "passage_id": "synthetic-copd",
+            "condition": "copd",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-copd",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-asthma-condition",
+          "synthetic-copd-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "asthma-copd",
+      "expected_conditions": [
+        "asthma",
+        "copd"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "asthma",
+          "copd"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-asthma-condition",
+          "synthetic-copd-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "urgent-no-evidence",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": true,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "urgent",
+            "description": "Interview assessment recommendation: Seek urgent care now. Assessment actions: Arrange clinician review. Longer-term activities must not replace or delay this recommendation.",
+            "timing": null,
+            "provenance": "assessment",
+            "source_ids": [
+              "ServiceRequest/synthetic-type-2-diabetes-assessment"
+            ]
+          },
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "type-2-diabetes"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "no-matching-passages",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "urgent-no-evidence",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": true,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "urgent",
+            "description": "Interview assessment recommendation: Seek urgent care now. Assessment actions: Arrange clinician review. Longer-term activities must not replace or delay this recommendation.",
+            "timing": null,
+            "provenance": "assessment",
+            "source_ids": [
+              "ServiceRequest/synthetic-type-2-diabetes-assessment"
+            ]
+          },
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "type-2-diabetes"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "emergency-no-evidence",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": true,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "urgent",
+            "description": "Interview assessment recommendation: Go to the emergency department now. Assessment actions: Arrange clinician review. Longer-term activities must not replace or delay this recommendation.",
+            "timing": null,
+            "provenance": "assessment",
+            "source_ids": [
+              "ServiceRequest/synthetic-type-2-diabetes-assessment"
+            ]
+          },
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "type-2-diabetes"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "no-matching-passages",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "emergency-no-evidence",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": true,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "urgent",
+            "description": "Interview assessment recommendation: Go to the emergency department now. Assessment actions: Arrange clinician review. Longer-term activities must not replace or delay this recommendation.",
+            "timing": null,
+            "provenance": "assessment",
+            "source_ids": [
+              "ServiceRequest/synthetic-type-2-diabetes-assessment"
+            ]
+          },
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "type-2-diabetes"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "unsupported-condition",
+      "expected_conditions": [],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": null,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "Unsupported synthetic condition"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "no-matching-passages",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": []
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "unsupported-condition",
+      "expected_conditions": [],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": null,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "Unsupported synthetic condition"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": []
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "missing-observations",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [
+        "type-2-diabetes"
+      ],
+      "retrieved_context_count": 1,
+      "retrieved_context_conditions": [
+        "type-2-diabetes"
+      ],
+      "model_generated_activity_count": 0,
+      "context_informed_activity_count": 1,
+      "evidence_coverage": 1.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "context-informed",
+            "source_ids": [
+              "synthetic-type-2-diabetes"
+            ]
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [],
+        "review_notes": [
+          "Synthetic protocol only."
+        ],
+        "evidence_sources": [
+          {
+            "passage_id": "synthetic-type-2-diabetes",
+            "condition": "type-2-diabetes",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-type-2-diabetes",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "related_icmr_context": [
+          {
+            "passage_id": "synthetic-type-2-diabetes",
+            "condition": "type-2-diabetes",
+            "reviewed": true,
+            "text": "SYNTHETIC: Review recorded measurements with the clinician.",
+            "applicability": "Synthetic established adult condition.",
+            "exceptions": "No prescribing.",
+            "publisher": "Synthetic evaluation fixture",
+            "document_id": "synthetic-type-2-diabetes",
+            "version_id": "synthetic-v1",
+            "page": 1,
+            "section": "Synthetic"
+          }
+        ],
+        "generation_mode": "enriched",
+        "context_status": "available",
+        "context_enabled": true,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "missing-observations",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "completed",
+      "covered_conditions": [],
+      "retrieved_context_count": 0,
+      "retrieved_context_conditions": [],
+      "model_generated_activity_count": 1,
+      "context_informed_activity_count": 0,
+      "evidence_coverage": 0.0,
+      "unsupported_citation_count": 0,
+      "urgent_first": false,
+      "prohibited_content_accepted": 0,
+      "draft": {
+        "title": "Synthetic protocol draft",
+        "activities": [
+          {
+            "category": "monitoring",
+            "description": "Review recorded measurements with the clinician.",
+            "timing": null,
+            "provenance": "model",
+            "source_ids": []
+          }
+        ],
+        "missing_information": [],
+        "uncovered_conditions": [
+          "type-2-diabetes"
+        ],
+        "review_notes": [
+          "Synthetic protocol only.",
+          "No retrieved ICMR context was used; suggestions are model-generated for clinician review."
+        ],
+        "evidence_sources": [],
+        "related_icmr_context": [],
+        "generation_mode": "enriched",
+        "context_status": "disabled",
+        "context_enabled": false,
+        "result_status": "completed",
+        "condition_ids": [
+          "synthetic-type-2-diabetes-condition"
+        ]
+      },
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "fhir-failure",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Synthetic failed FHIR read; no empty-context fallback",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "fhir-failure",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Synthetic failed FHIR read; no empty-context fallback",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "malformed-output",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Draft failed validation after one repair: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "malformed-output",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Draft failed validation after one repair: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "fabricated-citation",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Draft failed validation after one repair: Unknown or missing evidence citation",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "fabricated-citation",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Draft failed validation after one repair: Unknown or missing evidence citation",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "prohibited-prescribing",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Draft failed validation after one repair: Prohibited specific drug or class recommendation",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "prohibited-prescribing",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Draft failed validation after one repair: Prohibited specific drug or class recommendation",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "conflicting-recommendations",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": true,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Draft failed validation after one repair: Review rejected: Unresolved contradictory advice",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    },
+    {
+      "case_id": "conflicting-recommendations",
+      "expected_conditions": [
+        "type-2-diabetes"
+      ],
+      "context_enabled": false,
+      "generation_mode": "enriched",
+      "status": "failed",
+      "reason": "Draft failed validation after one repair: Review rejected: Unresolved contradictory advice",
+      "prohibited_content_accepted": 0,
+      "clinical_unsupported_recommendations": "unscored: independent clinical review required"
+    }
+  ],
+  "summary": {
+    "case_count": 38,
+    "completed": 28,
+    "insufficient_evidence": 0,
+    "failed": 10,
+    "unsupported_citations_accepted": 0,
+    "prohibited_content_accepted": 0
+  }
+}

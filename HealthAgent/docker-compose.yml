@@ -1,0 +1,181 @@
+services:
+  iris:
+    build: .
+    container_name: central-park-iris
+    restart: unless-stopped
+    command: ["--after", "bash /home/irisowner/central-park/iris-config/runtime.sh"]
+    healthcheck:
+      test: ["CMD", "/usr/irissys/bin/irispython", "/home/irisowner/central-park/iris-config/check-fhir.py"]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+      start_period: 90s
+    ports:
+      # Bound to 127.0.0.1 so these never land on a public interface. Docker
+      # otherwise publishes straight past the host firewall, so this binding —
+      # not ufw — is what keeps IRIS off the VM's public IP. On a cloud VM,
+      # reach the Management Portal / Visual Trace through an SSH tunnel:
+      #   ssh -L 52773:localhost:52773 root@your-vm   ->   http://localhost:52773
+      - "127.0.0.1:1972:1972"     # SuperServer (JDBC/ODBC, xDBC, IRIS Native)
+      - "127.0.0.1:52773:52773"   # Web (Management Portal, FHIR endpoint, REST)
+    # Allow host.docker.internal on Linux Docker Engine as well as Docker Desktop.
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      # Forwarded into the container so Install.cls's InstallEmbeddingConfig
+      # can refresh the embedding provider, model and credentials at runtime.
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      CP_EMBEDDING_PROVIDER: ${CP_EMBEDDING_PROVIDER:-openai}
+      CP_EMBEDDING_MODEL: ${CP_EMBEDDING_MODEL:-text-embedding-3-small}
+      CP_EMBEDDING_BASE_URL: ${CP_EMBEDDING_BASE_URL:-}
+      CP_EMBEDDING_API_KEY: ${CP_EMBEDDING_API_KEY:-}
+      CP_EMBEDDING_DIMENSIONS: ${CP_EMBEDDING_DIMENSIONS:-1536}
+      CP_EMBEDDING_SEND_DIMENSIONS: ${CP_EMBEDDING_SEND_DIMENSIONS:-false}
+      CP_EMBEDDING_REVISION: ${CP_EMBEDDING_REVISION:-}
+      IRIS_USERNAME: ${IRIS_USERNAME:-_SYSTEM}
+      IRIS_PASSWORD: ${IRIS_PASSWORD:-SYS}
+    volumes:
+      # Source bind-mounts for in-place edits during development.
+      # Reload changed ObjectScript classes inside the container with:
+      #   docker compose exec iris iris session IRIS -U CENTRALPARK \
+      #       'do $system.OBJ.LoadDir("/home/irisowner/central-park/src/cls","ck",,1)'
+      - ./src/cls:/home/irisowner/central-park/src/cls
+      - ./iris-config:/home/irisowner/central-park/iris-config
+      # Persist FHIR data and IRIS globals across docker compose down/up cycles.
+      - iris-data:/usr/irissys/mgr
+
+  agent:
+    build:
+      context: .
+      dockerfile: agent/Dockerfile
+    container_name: central-park-agent
+    restart: unless-stopped
+    ports:
+      # Localhost-only; the UI reaches the agent over the Docker network (agent:8000).
+      - "127.0.0.1:${CP_AGENT_PORT:-8001}:8000"
+    # Resolve the host-based chat API consistently on Linux and Docker Desktop.
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      CP_LLM_PROVIDER: ${CP_LLM_PROVIDER:-openai}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      CP_OPENAI_MODEL: ${CP_OPENAI_MODEL:-gpt-4o-mini}
+      CP_LLM_API_KEY: ${CP_LLM_API_KEY:-}
+      CP_OPENAI_BASE_URL: ${CP_OPENAI_BASE_URL:-${OPENAI_BASE_URL:-}}
+      CP_OPENAI_JSON_MODE: ${CP_OPENAI_JSON_MODE:-true}
+      CP_OPENAI_TOKEN_LIMIT_PARAM: ${CP_OPENAI_TOKEN_LIMIT_PARAM:-max_completion_tokens}
+      CP_OPENAI_CHAT_TEMPLATE_KWARGS: '${CP_OPENAI_CHAT_TEMPLATE_KWARGS:-}'
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      CP_ANTHROPIC_MODEL: ${CP_ANTHROPIC_MODEL:-claude-haiku-4-5-20251001}
+      CP_OLLAMA_BASE_URL: ${CP_OLLAMA_BASE_URL:-http://ollama:11434}
+      CP_OLLAMA_MODEL: ${CP_OLLAMA_MODEL:-llama3.2:3b}
+      CP_FHIR_BASE_URL: ${CP_FHIR_BASE_URL:-http://iris:52773/csp/healthshare/centralpark/fhir/r4}
+      CP_FHIR_USER: ${CP_FHIR_USER:-_SYSTEM}
+      CP_FHIR_PASSWORD: ${CP_FHIR_PASSWORD:-SYS}
+      CP_IRIS_REST_BASE_URL: ${CP_IRIS_REST_BASE_URL:-http://iris:52773/centralpark}
+      CP_CARE_CATALOGUE_PATH: ${CP_CARE_CATALOGUE_PATH:-/app/md_care_documents/.preparation/catalogue.json}
+      CP_CARE_GENERATION_MODE: ${CP_CARE_GENERATION_MODE:-enriched}
+      CP_CARE_CONTEXT_MAX_CHARS: ${CP_CARE_CONTEXT_MAX_CHARS:-24000}
+      CP_MODEL_INPUT_MAX_CHARS: ${CP_MODEL_INPUT_MAX_CHARS:-120000}
+      CP_BENCHMARK_API_ENABLED: ${CP_BENCHMARK_API_ENABLED:-false}
+      CP_LLM_BACKEND: ${CP_LLM_BACKEND:-generic}
+      CP_LLM_TIMEOUT_SECONDS: ${CP_LLM_TIMEOUT_SECONDS:-60}
+      CP_LLM_MAX_RETRIES: ${CP_LLM_MAX_RETRIES:-1}
+      CP_LLM_RETRY_BACKOFF_SECONDS: ${CP_LLM_RETRY_BACKOFF_SECONDS:-0.5}
+      CP_LLM_STREAM: ${CP_LLM_STREAM:-false}
+      CP_LLM_TEMPERATURE: ${CP_LLM_TEMPERATURE:-}
+      CP_LLM_TOP_P: ${CP_LLM_TOP_P:-}
+      CP_LLM_SEED: ${CP_LLM_SEED:-}
+      CP_LLM_MAX_OUTPUT_TOKENS: ${CP_LLM_MAX_OUTPUT_TOKENS:-2048}
+      CP_SERVING_METADATA: '${CP_SERVING_METADATA:-}'
+      CP_SERVING_METRICS_URL: ${CP_SERVING_METRICS_URL:-}
+      CP_HOST_METRICS_URL: ${CP_HOST_METRICS_URL:-}
+      # Profile metadata only; IRIS continues to own embedding requests/credentials.
+      CP_EMBEDDING_PROVIDER: ${CP_EMBEDDING_PROVIDER:-openai}
+      CP_EMBEDDING_MODEL: ${CP_EMBEDDING_MODEL:-text-embedding-3-small}
+      CP_EMBEDDING_BASE_URL: ${CP_EMBEDDING_BASE_URL:-}
+      CP_EMBEDDING_DIMENSIONS: ${CP_EMBEDDING_DIMENSIONS:-1536}
+      CP_EMBEDDING_REVISION: ${CP_EMBEDDING_REVISION:-}
+      CP_EMBEDDING_METRICS_URL: ${CP_EMBEDDING_METRICS_URL:-}
+    volumes:
+      # Live-reload for Python edits.
+      - ./src/python/central_park:/app/central_park
+      # Unit tests for the deterministic red-flag gate (run: pytest tests/).
+      - ./src/python/tests:/app/tests:ro
+      # Demo FHIR bundles, re-seeded at runtime by seed_demo_patients().
+      - ./iris-config/seed:/app/seed:ro
+      # Private curated documents are excluded from Git and Docker build contexts.
+      - ${CP_CARE_DOCUMENT_DIR:-./md_care_documents}:/app/md_care_documents:ro
+    depends_on:
+      iris:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/health', timeout=5)"]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+
+  ui:
+    build:
+      context: ./ui
+    container_name: central-park-ui
+    restart: unless-stopped
+    # nginx serves the built SPA on :80 and reverse-proxies /api -> agent and
+    # /fhir -> IRIS (injecting Basic auth) so the browser stays same-origin.
+    # In production, Caddy (docker-compose.prod.yml) fronts this over the Docker
+    # network, so this localhost binding is only for local-dev access.
+    ports:
+      - "127.0.0.1:8501:80"
+    environment:
+      CP_AGENT_BASE_URL: ${CP_AGENT_BASE_URL:-http://agent:8000}
+      CP_FHIR_BASE_URL: ${CP_FHIR_BASE_URL:-http://iris:52773/csp/healthshare/centralpark/fhir/r4}
+      CP_FHIR_USER: ${CP_FHIR_USER:-_SYSTEM}
+      CP_FHIR_PASSWORD: ${CP_FHIR_PASSWORD:-SYS}
+    depends_on:
+      iris:
+        condition: service_healthy
+      agent:
+        condition: service_healthy
+
+  # --- Optional services -----------------------------------------------------
+  # Bundled Ollama for offline chat. Disabled by default because the chat path
+  # on Apple Silicon Docker Desktop has hit llama.cpp runner crashes for us;
+  # judges on x86 Linux can enable it cleanly. To use, add `CP_LLM_PROVIDER=ollama`
+  # to `.env` and start with:  docker compose --profile ollama up
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: central-park-ollama
+    profiles: ["ollama"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: central-park-ollama-init
+    profiles: ["ollama"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        echo "Pulling llama3.2:3b (chat) ..." &&
+        ollama pull llama3.2:3b &&
+        echo "All models ready."
+    restart: "no"
+
+volumes:
+  iris-data:
+  ollama-models:

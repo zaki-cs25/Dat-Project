@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""One entry point for CarePlan100 startup, measurement, grading and CSV export."""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from benchmarks.careplan100.cli import main
+
+if __name__ == '__main__':
+    raise SystemExit(main())

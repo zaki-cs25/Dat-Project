@@ -1,0 +1,39 @@
+revision,dimension,value,attempts,unique_cases,completed,generation_failures,graded_completed,ungraded_completed,grade_coverage,completed_mean_score,all_attempt_case_macro_score,critical_flags,critical_flag_rate,unknown_critical_count,passes,pass_threshold,judge_cost
+20261121T151819Z-bc2bfd3f,overall,all,100,100,100,0,95,5,0.95,89.55513368421052,,2,0.021052631578947368,5,77,80,unknown
+20261121T151819Z-bc2bfd3f,split,development,20,20,20,0,20,0,1.0,87.500005,87.500005,1,0.05,0,14,80,unknown
+20261121T151819Z-bc2bfd3f,split,evaluation,80,80,80,0,75,5,0.9375,90.103168,,1,0.013333333333333334,5,63,80,unknown
+20261121T151819Z-bc2bfd3f,group,chronic,30,30,30,0,29,1,0.9666666666666667,94.06130689655173,,1,0.034482758620689655,1,25,80,unknown
+20261121T151819Z-bc2bfd3f,group,injury,20,20,20,0,17,3,0.85,86.35621176470588,,1,0.058823529411764705,3,9,80,unknown
+20261121T151819Z-bc2bfd3f,group,opd,50,50,50,0,49,1,0.98,87.99804489795918,,0,0.0,1,43,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Allergic rhinitis,5,5,5,0,5,0,1.0,93.33332,93.33332,0,0.0,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,CKD,6,6,6,0,6,0,1.0,100.0,100.0,0,0.0,0,6,80,unknown
+20261121T151819Z-bc2bfd3f,condition,COPD,6,6,6,0,6,0,1.0,92.5926,92.5926,0,0.0,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Common cold,5,5,5,0,5,0,1.0,86.66664,86.66664,0,0.0,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Established acute gastroenteritis,5,5,5,0,5,0,1.0,67.61904,67.61904,0,0.0,0,2,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Established contact dermatitis,5,5,5,0,5,0,1.0,100.0,100.0,0,0.0,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Established dyspepsia,5,5,5,0,4,1,0.8,96.428575,,0,0.0,1,4,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Established episodic tension headache,5,5,5,0,5,0,1.0,89.99998,89.99998,0,0.0,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Established haemorrhoids,5,5,5,0,5,0,1.0,87.61904,87.61904,0,0.0,0,4,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Established nonspecific low back pain,5,5,5,0,5,0,1.0,93.33332,93.33332,0,0.0,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Established uncomplicated constipation,5,5,5,0,5,0,1.0,89.99998,89.99998,0,0.0,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,Established viral pharyngitis,5,5,5,0,5,0,1.0,76.66666000000001,76.66666000000001,0,0.0,0,3,80,unknown
+20261121T151819Z-bc2bfd3f,condition,ankle sprain,3,3,3,0,3,0,1.0,84.25926666666668,84.25926666666668,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,asthma,6,6,6,0,6,0,1.0,92.12963333333333,92.12963333333333,0,0.0,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,calf strain,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,forearm abrasion,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,forearm contusion,1,1,1,0,1,0,1.0,75.0,75.0,0,0.0,0,0,80,unknown
+20261121T151819Z-bc2bfd3f,condition,hypertension,6,6,6,0,5,1,0.8333333333333334,91.11112,,0,0.0,1,4,80,unknown
+20261121T151819Z-bc2bfd3f,condition,knee abrasion,1,1,1,0,1,0,1.0,75.0,75.0,0,0.0,0,0,80,unknown
+20261121T151819Z-bc2bfd3f,condition,minor superficial partial-thickness scald,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,minor superficial scald,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,minor superficial thermal burn,2,2,2,0,1,1,0.5,50.0,,1,1.0,1,0,80,unknown
+20261121T151819Z-bc2bfd3f,condition,shin contusion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T151819Z-bc2bfd3f,condition,shoulder muscle strain,1,1,1,0,1,0,1.0,75.0,75.0,0,0.0,0,0,80,unknown
+20261121T151819Z-bc2bfd3f,condition,superficial finger cut,1,1,1,0,1,0,1.0,87.5,87.5,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,superficial forearm cut,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,superficial hand cut,1,1,1,0,1,0,1.0,77.7778,77.7778,0,0.0,0,0,80,unknown
+20261121T151819Z-bc2bfd3f,condition,superficial thumb cut,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,thigh contusion,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T151819Z-bc2bfd3f,condition,type 2 diabetes,6,6,6,0,6,0,1.0,93.98148333333334,93.98148333333334,1,0.16666666666666666,0,5,80,unknown
+20261121T151819Z-bc2bfd3f,condition,upper-arm contusion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T151819Z-bc2bfd3f,condition,wrist sprain,1,1,1,0,1,0,1.0,75.0,75.0,0,0.0,0,0,80,unknown

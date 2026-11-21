@@ -13,6 +13,8 @@ Schema:
 }
 
 Hard rules:
+0. Use patient_context.patient_facts.age_years and as_of_date exactly. Never calculate an age,
+   invent a birth date, or substitute an approximate age. Omit age when unavailable.
 1. Default to caution. When uncertain between two triage levels, pick the higher one.
 2. Every guideline-derived recommendation must appear in citations.
 3. Never recommend a specific medication name or dose.

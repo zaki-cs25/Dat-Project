@@ -1,0 +1,94 @@
+{
+  "review_date": "2026-10-24",
+  "status": "ready_for_research_freeze_with_documented_limitations",
+  "clinician_validated": false,
+  "reviewer_role": "Independent AI dataset critic; not a model-output judge",
+  "authoring_provenance": "Synthetic cases and rubrics authored by GPT-6 Astra agents at user request; separate GPT-6 Astra critique reviewed the combined data and made conservative source-checked corrections. No model evaluation/API server calls performed by this reviewer.",
+  "counts": {
+    "cases": 100,
+    "criteria": 500,
+    "groups": {
+      "chronic": 30,
+      "injury": 20,
+      "opd": 50
+    },
+    "splits": {
+      "development": 20,
+      "evaluation": 80
+    },
+    "dispositions": {
+      "routine": 87,
+      "urgent": 12,
+      "emergency": 1
+    },
+    "age_range": [
+      21,
+      90
+    ],
+    "critical_case_criteria": 14
+  },
+  "fixed_findings": [
+    {
+      "issue": "Five injury cases were placed in common OPD allocation, overlapping injury-domain coverage.",
+      "fix": "Replaced OPD-041 through OPD-045 with five distinct clinician-established viral-pharyngitis contexts; retained 1 development/4 evaluation and source-verified non-drug guidance."
+    },
+    {
+      "issue": "Generic adult indigestion source was insufficiently specific for pregnancy.",
+      "fix": "OPD-019 now cites pregnancy-specific NHS guidance; age29 pregnancy remains adult scope."
+    },
+    {
+      "issue": "Nickel described as irritant; headache frequency and urgent follow-up criteria were insufficiently tailored.",
+      "fix": "Corrected OPD-028 allergen language, OPD-038 current frequent-headache review, and current clinician-directed urgent follow-up."
+    },
+    {
+      "issue": "Several criteria double-counted the same action or gave routine follow-up credit in urgent cases.",
+      "fix": "Distinguished monitoring schedule from measurement and surveillance domains; replaced generic items with preserving already supplied urgent/emergency disposition. All 13 non-routine cases have a critical case criterion."
+    }
+  ],
+  "review_findings": {
+    "case_rubric_alignment": "No unresolved material inconsistency identified in reviewed final cases; all500 case criteria have matching cases and source references resolve.",
+    "atomicity": "Five independently scorable action-level criteria per case; alternative examples within one action are not intended as separate required actions.",
+    "critical_flags": "Reserved for preserving supplied urgent/emergency action and one early-burn harmful-first-aid avoidance criterion; ordinary harmless omissions remain noncritical.",
+    "family_isolation": "Family IDs represent individual vignette families, not diagnoses. No exact duplicate vignette or age-only copy was identified across splits. Shared diagnosis/guideline scaffolds remain intentionally present.",
+    "coverage": "Common cold and other ordinary presentations appear in both splits. OPD covers10 conditions, chronic5 conditions, injury4 broad types. Pragmatic synthetic sample, not prevalence-weighted clinical coverage.",
+    "prefix_scope": "Four interview turns per case are supplied for prefix performance. Interview quality and triage accuracy are outside scope."
+  },
+  "source_verification": {
+    "independently_opened_primary_urls": [
+      "https://www.nhs.uk/conditions/sprains-and-strains/",
+      "https://www.nhs.uk/pregnancy/common-symptoms/indigestion-and-heartburn/",
+      "https://www.nhs.uk/conditions/tension-headaches/",
+      "https://www.nhs.uk/symptoms/sore-throat/"
+    ],
+    "independently_read_local_sources": [
+      "md_care_documents/hypertension.md:90-94",
+      "md_care_documents/stw_v3.md:1786-1851",
+      "md_care_documents/stw_manual_v1_stw_i.md:1702-1725"
+    ],
+    "limits": [
+      "Other source checks rely on author-recorded verification in sources-opd.json and sources-chronic-injury.json; independent critic did not re-open every URL.",
+      "Some author NICE/ATS checks used primary indexed excerpts after direct-open failures; registry records this limitation.",
+      "MedlinePlus bruise reference is supplementary, not a primary guideline.",
+      "No pediatric-specific recommendation was imported into these adult cases.",
+      "Source access date is reference2026-10-24; no automated archival snapshot or comprehensive clinical validation was performed."
+    ]
+  },
+  "limitations": [
+    "Public synthetic evaluation split is not hidden, diagnosis-held-out, or contamination-proof.",
+    "Shared guideline scaffolds and easy routine cases can inflate aggregate scores; report condition/domain and scenario-stratified results.",
+    "Case-specific rubrics do not replace global safety/scope grading; medication names/doses in factual history must not be treated as prescribing.",
+    "Clinical deployment validity and exhaustive specialty coverage are not established."
+  ],
+  "blocking_issues": [],
+  "premeasurement_split_adjustment": {
+    "reason": "Include urgent-disposition regression coverage in development rather than first exercising it during evaluation. No clinical facts or rubric weights changed.",
+    "new_split_by_case": {
+      "CHR-002": "evaluation",
+      "CHR-006": "development",
+      "INJ-001": "evaluation",
+      "INJ-006": "development",
+      "OPD-041": "evaluation",
+      "OPD-045": "development"
+    }
+  }
+}

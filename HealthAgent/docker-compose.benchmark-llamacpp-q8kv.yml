@@ -1,0 +1,10 @@
+# Additional override for CarePlan100 runs against a llama.cpp server
+# (Qwen3.6-27B Q8_0 GGUF with q8_0 KV cache on host port 8001). Layer after docker-compose.benchmark.yml.
+# Only the serving backend label, metrics URL and declared serving metadata change;
+# sampling (temperature 0, top_p 1, seed 42, thinking off) stays as in the benchmark override.
+services:
+  agent:
+    environment:
+      CP_LLM_BACKEND: llamacpp
+      CP_SERVING_METRICS_URL: http://host.docker.internal:8001/metrics
+      CP_SERVING_METADATA: '{"server_version":"llama.cpp b11429-d81235049","quantization":"Q8_0 GGUF weights","weights_identity":"unsloth Qwen3.6-27B-Q8_0.gguf","context_limit_tokens":65536,"parallelism":"1x A100 80GB, --parallel 4 slots, ctx-size 262144 total","cache_policy":"q8_0 KV cache (--cache-type-k q8_0 --cache-type-v q8_0), flash-attn on","hardware":"NVIDIA A100 80GB (Slurm a100_praveent)"}'

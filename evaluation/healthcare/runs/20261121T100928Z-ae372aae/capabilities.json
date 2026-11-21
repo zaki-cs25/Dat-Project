@@ -1,0 +1,1 @@
+{"available":true,"context_limit_tokens":65536,"embedding_dimensions":5120,"endpoint":"http://host.docker.internal:8001/v1","limitations":["model listing does not advertise dimensions or context limits"],"measurement_origin":"server_model_listing","model_advertised":true,"models":["qwen3.6-27b"],"server_version":null}

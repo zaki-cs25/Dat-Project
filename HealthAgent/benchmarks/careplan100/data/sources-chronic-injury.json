@@ -1,0 +1,107 @@
+[
+  {
+    "id": "CI-SRC-ICMR-HTN",
+    "title": "ICMR Standard Treatment Workflow: Hypertension in Adults",
+    "url": "md_care_documents/hypertension.md#monitoring-of-hypertension",
+    "accessed_date": "2026-10-24",
+    "notes": "Read local lines 90-94: adherence, lifestyle, BP monitoring and annual renal/metabolic surveillance. Used only non-prescribing content. Synthetic benchmark draft pending independent clinical review."
+  },
+  {
+    "id": "CI-SRC-ICMR-T2D",
+    "title": "ICMR Standard Treatment Workflow: Diabetes Mellitus Type 2",
+    "url": "md_care_documents/stw_v3.md#standard-treatment-workflow-stw-diabetes-mellitus-type-2-icd-10-e11",
+    "accessed_date": "2026-10-24",
+    "notes": "Read lines 1786-1851, especially ASSESS, INVESTIGATION, MONITORING and REFERRALS. Used for established diabetes monitoring, foot/eye surveillance and lifestyle, not prescribing or diagnosis."
+  },
+  {
+    "id": "CI-SRC-ICMR-COPD",
+    "title": "ICMR Standard Treatment Workflow: Chronic Obstructive Pulmonary Disease",
+    "url": "md_care_documents/stw_manual_v1_stw_i.md#chronic-obstructive-pulmonary-disease",
+    "accessed_date": "2026-10-24",
+    "notes": "Read lines 5287-5380, especially TREATMENT non-drug advice and symptom-change assessment. Does not support autonomous exacerbation classification or medication changes."
+  },
+  {
+    "id": "CI-SRC-ICMR-CKD",
+    "title": "ICMR Standard Treatment Workflow: Chronic Kidney Disease",
+    "url": "md_care_documents/stw_manual_v1_stw_i.md#chronic-kidney-disease-ckd",
+    "accessed_date": "2026-10-24",
+    "notes": "Read lines 1702-1765: evaluation, renal/electrolyte results and medication exposure. Historical local workflow; use only evaluation concepts, with current NICE guidance for monitoring. No prescribing recommendations imported."
+  },
+  {
+    "id": "CI-SRC-NICE-HTN",
+    "title": "NICE NG136: Hypertension in adults, recommendations",
+    "url": "https://www.nice.org.uk/guidance/ng136/chapter/recommendations",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified through primary-site search excerpts: 1.4.15-1.4.18 BP monitoring, standing BP for postural symptoms/age 80+, and discordant readings. Used for CHR-002 and CHR-003."
+  },
+  {
+    "id": "CI-SRC-NICE-T2D",
+    "title": "NICE NG28: Blood glucose management",
+    "url": "https://www.nice.org.uk/guidance/ng28/chapter/Blood-glucose-management",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified primary-site text for 1.5.1 and 1.5.5: HbA1c monitoring and individual targets. February 2026 update. Used for monitoring, not drug selection."
+  },
+  {
+    "id": "CI-SRC-NICE-ASTHMA",
+    "title": "NICE NG245: Asthma diagnosis, monitoring and chronic management",
+    "url": "https://www.nice.org.uk/guidance/ng245/chapter/recommendations",
+    "accessed_date": "2026-10-24",
+    "notes": "Primary search text verified sections 1.4, 1.5, 1.6.1/1.6.7 and 1.14-1.16: occupational symptoms, control, technique, adherence, personalised action plans and follow-up. Direct open returned 403; verified search extracts are the access basis. No prescribing criteria included."
+  },
+  {
+    "id": "CI-SRC-NICE-CKD",
+    "title": "NICE NG203: Chronic kidney disease assessment and management",
+    "url": "https://www.nice.org.uk/guidance/ng203/chapter/Recommendations",
+    "accessed_date": "2026-10-24",
+    "notes": "Primary search text verified monitoring section 1.3, dietary advice 1.4.7-1.4.9 and albuminuria/referral text 1.6.7. Direct open returned 403. Used for monitoring and review, not medication selection."
+  },
+  {
+    "id": "CI-SRC-ATS-PR",
+    "title": "ATS: Pulmonary Rehabilitation for Adults with Chronic Respiratory Disease",
+    "url": "https://www.atsjournals.org/doi/pdf/10.1164/rccm.202306-1066ST?download=true",
+    "accessed_date": "2026-10-24",
+    "notes": "Primary ATS search text verified recommendations for stable COPD, after hospitalisation for exacerbation, and choice of centre-based or telerehabilitation. DOI direct open failed; publisher/ATS indexed text verified."
+  },
+  {
+    "id": "CI-SRC-NHS-COPD",
+    "title": "NHS: Living with COPD",
+    "url": "https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/living-with/",
+    "accessed_date": "2026-10-24",
+    "notes": "Opened page: regular review, weight loss/dietitian, vaccination and exposure advice. Use clinician review of vaccine status, not a new vaccine order or schedule."
+  },
+  {
+    "id": "CI-SRC-NHS-SPRAIN",
+    "title": "NHS: Sprains and strains",
+    "url": "https://www.nhs.uk/conditions/sprains-and-strains/",
+    "accessed_date": "2026-10-24",
+    "notes": "Opened page, reviewed 23 April 2024. Early protection/cold therapy, movement as pain permits, delayed recovery/physiotherapy and reassessment warnings. Cases already clinician-established; does not authorize new diagnosis or analgesic prescribing."
+  },
+  {
+    "id": "CI-SRC-LEEDS-BRUISE",
+    "title": "Leeds Teaching Hospitals NHS Trust: Bruise advice",
+    "url": "https://www.leedsth.nhs.uk/patients/resources/bruise-advice/",
+    "accessed_date": "2026-10-24",
+    "notes": "Opened page, reviewed 28 August 2025: elevation and cold compress with skin barrier. Used for uncomplicated contusion comfort measures."
+  },
+  {
+    "id": "CI-SRC-MEDLINE-BRUISE",
+    "title": "MedlinePlus Medical Encyclopedia: Bruise",
+    "url": "https://medlineplus.gov/ency/article/007213.htm",
+    "accessed_date": "2026-10-24",
+    "notes": "Opened page, reviewed 1 April 2025: anticoagulant-associated bruising, protective first aid and seeking care for concerning pain/pressure or infection. Public national-library-hosted clinical reference; supplementary to primary NHS advice."
+  },
+  {
+    "id": "CI-SRC-NHS-CUT",
+    "title": "NHS: Cuts and grazes",
+    "url": "https://www.nhs.uk/conditions/cuts-and-grazes/",
+    "accessed_date": "2026-10-24",
+    "notes": "Opened page, reviewed 2 April 2026: wound cleaning, clean/dry dressing, tetanus protection assessment and infection/bleeding warning signs. No antibiotic or vaccine prescribing criteria."
+  },
+  {
+    "id": "CI-SRC-NHS-BURN",
+    "title": "NHS: Burns and scalds",
+    "url": "https://www.nhs.uk/conditions/burns-and-scalds/",
+    "accessed_date": "2026-10-24",
+    "notes": "Opened page, reviewed 31 March 2026: twenty-minute cooling within three hours, non-sticky protection, no ice/oils or blister bursting, healing follow-up. Only clinician-established small non-critical-site burns used; case-specific dressing/nurse details remain case facts."
+  }
+]

@@ -1,3 +1,5 @@
+> Historical V1 record: the old benchmark artifacts were cleared on 2026-10-24 at the user's request. Summary evidence is preserved in `docs/history/benchmark-v1-summary-20261024.zip`. The active benchmark is CarePlan100.
+
 # Step 5 live pilot
 
 Date: 2026-10-15. Status: engineering pilot complete, with model-output failures retained. The user approved Astra grading of the one accepted plan; its judgments were validated and imported.

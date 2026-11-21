@@ -1,0 +1,39 @@
+revision,dimension,value,attempts,unique_cases,completed,generation_failures,graded_completed,ungraded_completed,grade_coverage,completed_mean_score,all_attempt_case_macro_score,critical_flags,critical_flag_rate,unknown_critical_count,passes,pass_threshold,judge_cost
+20261121T145316Z-b294d827,overall,all,100,100,81,19,77,4,0.9506172839506173,81.61203896103896,,4,0.05194805194805195,23,45,80,unknown
+20261121T145316Z-b294d827,split,development,20,20,16,4,16,0,1.0,79.51389375,63.611115,0,0.0,4,9,80,unknown
+20261121T145316Z-b294d827,split,evaluation,80,80,65,15,61,4,0.9384615384615385,82.16237213114754,,4,0.06557377049180328,19,36,80,unknown
+20261121T145316Z-b294d827,group,chronic,30,30,28,2,27,1,0.9642857142857143,87.70576296296296,,1,0.037037037037037035,3,19,80,unknown
+20261121T145316Z-b294d827,group,injury,20,20,15,5,14,1,0.9333333333333333,81.25,,1,0.07142857142857142,6,7,80,unknown
+20261121T145316Z-b294d827,group,opd,50,50,38,12,36,2,0.9473684210526315,77.18253888888889,,2,0.05555555555555555,14,19,80,unknown
+20261121T145316Z-b294d827,condition,Allergic rhinitis,5,5,4,1,4,0,1.0,91.66665,73.33332,1,0.25,1,3,80,unknown
+20261121T145316Z-b294d827,condition,CKD,6,6,5,1,4,1,0.8,93.75,,0,0.0,2,3,80,unknown
+20261121T145316Z-b294d827,condition,COPD,6,6,5,1,5,0,1.0,100.0,83.33333333333333,0,0.0,1,5,80,unknown
+20261121T145316Z-b294d827,condition,Common cold,5,5,3,2,3,0,1.0,77.77776666666666,46.66666,0,0.0,2,2,80,unknown
+20261121T145316Z-b294d827,condition,Established acute gastroenteritis,5,5,4,1,4,0,1.0,39.88095,31.90476,0,0.0,1,0,80,unknown
+20261121T145316Z-b294d827,condition,Established contact dermatitis,5,5,3,2,3,0,1.0,100.0,60.0,0,0.0,2,3,80,unknown
+20261121T145316Z-b294d827,condition,Established dyspepsia,5,5,3,2,3,0,1.0,73.0159,43.809540000000005,0,0.0,2,1,80,unknown
+20261121T145316Z-b294d827,condition,Established episodic tension headache,5,5,5,0,3,2,0.6,77.7778,,0,0.0,2,1,80,unknown
+20261121T145316Z-b294d827,condition,Established haemorrhoids,5,5,3,2,3,0,1.0,72.2222,43.33332,1,0.3333333333333333,2,1,80,unknown
+20261121T145316Z-b294d827,condition,Established nonspecific low back pain,5,5,4,1,4,0,1.0,95.833325,76.66666000000001,0,0.0,1,4,80,unknown
+20261121T145316Z-b294d827,condition,Established uncomplicated constipation,5,5,4,1,4,0,1.0,87.49997499999999,69.99998,0,0.0,1,4,80,unknown
+20261121T145316Z-b294d827,condition,Established viral pharyngitis,5,5,5,0,5,0,1.0,63.333360000000006,63.333360000000006,0,0.0,0,0,80,unknown
+20261121T145316Z-b294d827,condition,ankle sprain,3,3,1,2,1,0,1.0,100.0,33.333333333333336,0,0.0,2,1,80,unknown
+20261121T145316Z-b294d827,condition,asthma,6,6,6,0,6,0,1.0,92.5926,92.5926,0,0.0,0,5,80,unknown
+20261121T145316Z-b294d827,condition,calf strain,1,1,1,0,1,0,1.0,50.0,50.0,0,0.0,0,0,80,unknown
+20261121T145316Z-b294d827,condition,forearm abrasion,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T145316Z-b294d827,condition,forearm contusion,1,1,1,0,1,0,1.0,50.0,50.0,0,0.0,0,0,80,unknown
+20261121T145316Z-b294d827,condition,hypertension,6,6,6,0,6,0,1.0,82.17593333333333,82.17593333333333,0,0.0,0,4,80,unknown
+20261121T145316Z-b294d827,condition,knee abrasion,1,1,0,1,0,0,,,0.0,0,,1,0,80,unknown
+20261121T145316Z-b294d827,condition,minor superficial partial-thickness scald,1,1,1,0,1,0,1.0,50.0,50.0,0,0.0,0,0,80,unknown
+20261121T145316Z-b294d827,condition,minor superficial scald,1,1,1,0,1,0,1.0,75.0,75.0,0,0.0,0,0,80,unknown
+20261121T145316Z-b294d827,condition,minor superficial thermal burn,2,2,1,1,1,0,1.0,100.0,50.0,0,0.0,1,1,80,unknown
+20261121T145316Z-b294d827,condition,shin contusion,1,1,1,0,1,0,1.0,75.0,75.0,1,1.0,0,0,80,unknown
+20261121T145316Z-b294d827,condition,shoulder muscle strain,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T145316Z-b294d827,condition,superficial finger cut,1,1,1,0,1,0,1.0,87.5,87.5,0,0.0,0,1,80,unknown
+20261121T145316Z-b294d827,condition,superficial forearm cut,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown
+20261121T145316Z-b294d827,condition,superficial hand cut,1,1,0,1,0,0,,,0.0,0,,1,0,80,unknown
+20261121T145316Z-b294d827,condition,superficial thumb cut,1,1,1,0,1,0,1.0,75.0,75.0,0,0.0,0,0,80,unknown
+20261121T145316Z-b294d827,condition,thigh contusion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T145316Z-b294d827,condition,type 2 diabetes,6,6,6,0,6,0,1.0,74.07406666666667,74.07406666666667,1,0.16666666666666666,0,2,80,unknown
+20261121T145316Z-b294d827,condition,upper-arm contusion,1,1,1,0,1,0,1.0,75.0,75.0,0,0.0,0,0,80,unknown
+20261121T145316Z-b294d827,condition,wrist sprain,1,1,1,0,1,0,1.0,100.0,100.0,0,0.0,0,1,80,unknown

@@ -1,0 +1,45 @@
+# IRIS runtime
+mgr/
+*.cpf
+*.log
+*.LCK
+*.WIJ
+*.ISCAGENT
+durable/
+iris.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.python-version
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Secrets / local env
+.env
+.env.local
+*.local.json
+
+# Editors
+.vscode/
+.idea/
+.DS_Store
+
+# Build / dist
+dist/
+build/
+*.xml.bak
+
+DEPLOY.md
+
+# Private local care corpus
+care-documents/
+md_care_documents/
+*.pdf
+
+# Keep benchmark code, synthetic cases, rubrics and documentation tracked.
+# Ignore only generated measurements; local configs are covered by *.local.json above.
+benchmarks/runs/

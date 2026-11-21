@@ -2,7 +2,7 @@
 
 Before recording, start the configured chat endpoint (current local port 8001), the BGE-M3 embedding endpoint (8081, 1024 dimensions) and Docker Compose. Confirm the application is ready at `http://localhost:8501` and the approved Markdown library is indexed. Current agent access is port 8002. See [setup and configuration](../README.md).
 
-1. Open `/intake`, choose a language and select **New patient**. Enter an explicitly synthetic full name, an adult birth date and gender (or prefer not to say). Select **Register and start interview**.
+1. Open `/intake` and select **New patient**. Enter an explicitly synthetic full name, an adult birth date and gender (or prefer not to say). Select **Register and start interview**.
 2. Show the assigned patient ID and explain that it is used for returning visits. Complete the adaptive interview. New registration starts with no recorded diagnoses, medications, allergies or observations; it does not reuse a demo patient's history.
 3. Show the assessment's final patient guidance. Explain that a separate care-plan Task runs in the background and does not add generated recommendations to the patient completion screen.
 4. Open the clinician **Care Plans** worklist. Find the new patient by name and show the interview date, urgency and generation status. Pending work updates automatically; it may already be completed by this point.

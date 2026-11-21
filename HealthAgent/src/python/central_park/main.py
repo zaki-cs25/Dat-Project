@@ -293,7 +293,8 @@ def careplan_trace(job_id: str):
     return {k: data.get(k) for k in ('status', 'clinical_input_sha256', 'context_sha256',
                                    'care_options', 'serving_identity', 'correlation', 'trace',
                                    'enqueued_at', 'queued_at', 'started_at', 'finished_at',
-                                   'queue_wait_seconds', 'processing_seconds', 'trace_ready')}
+                                   'queue_wait_seconds', 'processing_seconds', 'trace_ready',
+                                   'attempt_diagnostics', 'upstream_fact_conflicts')}
 
 
 @app.get('/benchmark/requests/{request_id}/trace')

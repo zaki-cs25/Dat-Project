@@ -62,8 +62,11 @@ def test_provision_creates_only_explicit_synthetic_facts(fhir_store):
     assert len(result['clinical_input_sha256']) == 64
     patient = store[('Patient', result['patient_id'])]
     assert patient['name'][0]['text'].startswith('Synthetic benchmark patient')
-    assert patient['birthDate']
-    assert benchmark_fixtures.benchmark_context.read_packet(patient) == packet()
+    assert 'birthDate' not in patient  # age is recorded as an extension, not a synthetic birth date
+    assert {'url': benchmark_fixtures.AGE_EXT, 'valueInteger': packet()['patient']['age']} in patient['extension']
+    # The app stores the validated packet, which includes optional fields set to None.
+    validated = benchmark_fixtures.benchmark_context.ClinicalPacket.model_validate(packet()).model_dump(mode='json')
+    assert benchmark_fixtures.benchmark_context.read_packet(patient) == validated
     assert patient['extension'][0]['url'] == benchmark_fixtures.AS_OF_EXT
 
     conditions = [v for (kind, _), v in store.items() if kind == 'Condition']
@@ -153,7 +156,7 @@ def test_unmatched_established_condition_stays_uncoded_and_narrative_symptoms_ar
     result = benchmark_fixtures.provision(FIXTURE, value)
     conditions = [resource for (kind, _), resource in store.items() if kind == 'Condition']
     assert len(conditions) == 1
-    assert conditions[0]['code'] == {'coding': [], 'text': 'asthma exacerbation'}
+    assert conditions[0]['code'] == {'text': 'asthma exacerbation'}  # FHIR forbids empty arrays, so no coding key
     assert len(result['resource_ids']['Condition']) == 1
 
 

@@ -45,7 +45,7 @@ def complete(submission_id: UUID, patient_id: str, transcript: list[dict], *,
             if supplemental_clinical_context is not None:
                 packet = supplemental_clinical_context
                 if fhir.age_years(patient) != packet['patient']['age']:
-                    raise ValueError('Supplemental age conflicts with patient birth date')
+                    raise ValueError('Supplemental age conflicts with the authoritative patient age')
                 gender = {'woman': 'female', 'man': 'male'}.get(packet['patient']['sex'], packet['patient']['sex'])
                 if patient.get('gender') not in (gender, 'unknown', None):
                     raise ValueError('Supplemental sex conflicts with patient record')

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "OPD-SRC-01",
+    "title": "CDC: Manage Common Cold",
+    "url": "https://www.cdc.gov/common-cold/treatment/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-02",
+    "title": "NHS: Allergic rhinitis",
+    "url": "https://www.nhs.uk/conditions/allergic-rhinitis/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-03",
+    "title": "NHS: acute gastroenteritis",
+    "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-04",
+    "title": "NHS: dyspepsia",
+    "url": "https://www.nhs.uk/conditions/indigestion/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-05",
+    "title": "NHS: constipation",
+    "url": "https://www.nhs.uk/conditions/constipation/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated. Page explicitly identifies its scope as adults."
+  },
+  {
+    "id": "OPD-SRC-06",
+    "title": "NHS: contact dermatitis",
+    "url": "https://www.nhs.uk/conditions/contact-dermatitis/treatment/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-07",
+    "title": "NHS: nonspecific low back pain",
+    "url": "https://www.nhs.uk/conditions/back-pain/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-08",
+    "title": "NHS: episodic tension headache",
+    "url": "https://www.nhs.uk/conditions/tension-headaches/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-10",
+    "title": "NHS: haemorrhoids",
+    "url": "https://www.nhs.uk/conditions/piles-haemorrhoids/",
+    "accessed_date": "2026-10-24",
+    "notes": "Verified public primary health-service guidance; adult-relevant self-care and review sections only. Drug recommendations excluded from this benchmark scope. Synthetic draft pending clinical review; not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-11",
+    "title": "NHS: Indigestion and heartburn in pregnancy",
+    "url": "https://www.nhs.uk/pregnancy/common-symptoms/indigestion-and-heartburn/",
+    "accessed_date": "2026-10-24",
+    "notes": "Independently opened in dataset critique. Adult pregnancy diet/meal timing, persistent-symptom review and swallowing-difficulty assessment only; no prescribing imported. OPD-019 is age 29, 28 weeks pregnant. Not clinician validated."
+  },
+  {
+    "id": "OPD-SRC-12",
+    "title": "NHS: Sore throat",
+    "url": "https://www.nhs.uk/symptoms/sore-throat/",
+    "accessed_date": "2026-10-24",
+    "notes": "Opened during independent dataset critique; adult self-care, persistent symptom review and swallowing safety-net sections. Diagnosis is supplied by clinician, not inferred from this public advice. No drug recommendations imported."
+  }
+]

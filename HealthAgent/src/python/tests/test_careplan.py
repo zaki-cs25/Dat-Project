@@ -51,8 +51,22 @@ class Provider:
         return value if isinstance(value, str) else json.dumps(value)
 
 
+def checks(**changes):
+    return dict.fromkeys(('medication_scope', 'patient_facts', 'urgency', 'evidence_applicability'), True) | changes
+
+
+def enriched_approved():
+    return {'approved': True, 'checks': checks(), 'issues': []}
+
+
+def rejected(quote, explanation, rule='evidence_applicability', field='activities[0].description'):
+    return {'approved': False, 'checks': checks(**{rule: False}),
+            'issues': [{'rule': rule, 'field': field, 'quote': quote, 'explanation': explanation}],
+            'applicable_source_ids': []}
+
+
 def approved(ids=None):
-    return {'approved': True, 'issues': [], 'applicable_source_ids': ids or ['s1']}
+    return {**enriched_approved(), 'applicable_source_ids': ids or ['s1']}
 
 
 def setup_model(monkeypatch, *responses, sources=None):
@@ -98,7 +112,7 @@ def test_urgent_first_and_exact_assessment_actions_retained(monkeypatch):
     assert result['activities'][1]['provenance'] == 'icmr'
 
 
-@pytest.mark.parametrize('bad', ['not JSON', draft(ids=['invented']), draft('Start metformin 500 mg daily.')])
+@pytest.mark.parametrize('bad', ['not JSON', draft(ids=['invented'])])
 def test_invalid_output_has_one_repair_and_is_never_accepted(monkeypatch, bad):
     provider = setup_model(monkeypatch, bad, bad)
     with pytest.raises(ValueError, match='one repair'):
@@ -119,14 +133,16 @@ def test_derived_age_handles_birthdays_and_invalid_future_dates():
     assert care_context.age_years({}) is None
 
 
-def test_incorrect_patient_age_rejected_before_model_review(monkeypatch):
+def test_incorrect_patient_age_is_reviewed_semantically(monkeypatch):
     proposed = draft()
-    proposed['review_notes'] = ['Orthostatic assessment omitted because the patient is 54 years old.']
-    provider = setup_model(monkeypatch, proposed, proposed)
-    monkeypatch.setattr(careplan, 'age_years', lambda patient: 56)
+    quote = 'The patient is 54 years old.'
+    proposed['review_notes'] = [quote]
+    reject = rejected(quote, 'Patient age inconsistent with patient_facts',
+                      'patient_facts', 'review_notes[0]')
+    provider = setup_model(monkeypatch, proposed, reject, proposed, reject)
     with pytest.raises(ValueError, match='age inconsistent'):
         careplan.generate(ctx())
-    assert provider.calls == 2
+    assert provider.calls == 4
 
 
 def test_guideline_age_threshold_is_not_a_patient_age_claim(monkeypatch):
@@ -174,7 +190,7 @@ def test_supplemental_packet_and_hash_reach_generation_and_review(monkeypatch, m
     if mode == 'enriched':
         proposed['activities'][0]['provenance'] = 'model'
         proposed['activities'][0]['source_ids'] = []
-    provider = CapturingProvider(proposed, {'approved': True, 'issues': [], 'review_notes': []}
+    provider = CapturingProvider(proposed, enriched_approved()
                                  if mode == 'enriched' else approved())
     monkeypatch.setattr(careplan, 'get_provider', lambda: provider)
     monkeypatch.setattr(careplan, 'retrieve', lambda *args: ([source()], []))
@@ -196,7 +212,7 @@ def test_supplemental_hash_mismatch_fails_before_provider(monkeypatch):
 
 
 def test_durable_care_options_apply_when_generate_arguments_are_omitted(monkeypatch):
-    provider = Provider({'title': 'Draft', 'activities': [{'category': 'monitoring', 'description': 'Review recorded measurements.', 'provenance': 'model', 'source_ids': []}], 'missing_information': [], 'uncovered_conditions': [], 'review_notes': []}, {'approved': True, 'issues': [], 'review_notes': []})
+    provider = Provider({'title': 'Draft', 'activities': [{'category': 'monitoring', 'description': 'Review recorded measurements.', 'provenance': 'model', 'source_ids': []}], 'missing_information': [], 'uncovered_conditions': [], 'review_notes': []}, enriched_approved())
     monkeypatch.setattr(careplan, 'get_provider', lambda: provider)
     monkeypatch.setattr(careplan, 'retrieve', lambda *args: pytest.fail('Stored context option disabled retrieval'))
     context = ctx()
@@ -238,8 +254,7 @@ def test_context_window_api_error_is_explicit_and_not_repaired(monkeypatch):
 
 
 def test_missing_threshold_review_rejection_is_bounded(monkeypatch):
-    rejection = {'approved': False, 'applicable_source_ids': [],
-                 'issues': ['BP threshold is unknown; unconditional every-visit timing is inapplicable.']}
+    rejection = rejected('Review medication adherence at every visit.', 'BP threshold is unknown; unconditional every-visit timing is inapplicable.')
     proposed = draft('Review medication adherence at every visit.')
     proposed['activities'][0]['category'] = 'medication-review'
     provider = setup_model(monkeypatch, proposed, rejection, proposed, rejection)
@@ -249,7 +264,7 @@ def test_missing_threshold_review_rejection_is_bounded(monkeypatch):
 
 
 def test_separate_reviewer_rejects_applicability_and_conflicts(monkeypatch):
-    review = {'approved': False, 'issues': ['Prerequisite missing; conflicting recommendations'], 'applicable_source_ids': []}
+    review = rejected(draft()['activities'][0]['description'], 'Prerequisite missing; conflicting recommendations')
     provider = setup_model(monkeypatch, draft(), review, draft(), review)
     with pytest.raises(ValueError, match='Prerequisite'):
         careplan.generate(ctx())
@@ -257,8 +272,8 @@ def test_separate_reviewer_rejects_applicability_and_conflicts(monkeypatch):
 
 
 def test_fabricated_reviewer_citation_rejected(monkeypatch):
-    setup_model(monkeypatch, draft(), approved(['ghost']), draft(), approved(['ghost']))
-    with pytest.raises(ValueError, match='fabricated'):
+    setup_model(monkeypatch, draft(), approved(['ghost']), approved(['ghost']))
+    with pytest.raises(ValueError, match='unknown citation'):
         careplan.generate(ctx())
 
 
@@ -472,13 +487,14 @@ def test_careplan_failure_cannot_block_completed_interview(monkeypatch):
 
 @pytest.mark.parametrize('advice', ['Take aspirin.', 'Use a statin.', 'Prescribe levothyroxine.', 'Insulin may help.'])
 def test_specific_drugs_and_classes_rejected_without_dose(monkeypatch, advice):
-    setup_model(monkeypatch, draft(advice), draft(advice))
+    reject = rejected(advice, 'Proposed specific drug treatment', 'medication_scope')
+    setup_model(monkeypatch, draft(advice), reject, draft(advice), reject)
     with pytest.raises(ValueError, match='specific drug'):
         careplan.generate(ctx())
 
 
 def test_generic_followup_not_applicable_to_unknown_hypothyroidism_subtype(monkeypatch):
-    reject = {'approved': False, 'issues': ['Primary/central subtype not documented'], 'applicable_source_ids': []}
+    reject = rejected(draft()['activities'][0]['description'], 'Primary/central subtype not documented')
     setup_model(monkeypatch, draft(), reject, draft(), reject, sources=[source('hypothyroidism')])
     with pytest.raises(ValueError, match='subtype'):
         careplan.generate(ctx('hypothyroidism'))
@@ -501,10 +517,10 @@ def test_adult_eligibility_missing_does_not_apply_adult_evidence(monkeypatch):
 
 
 def test_malformed_review_has_one_repair_and_never_saves(monkeypatch):
-    provider = setup_model(monkeypatch, draft(), '{}', draft(), '{}')
-    with pytest.raises(ValueError, match='one repair'):
+    provider = setup_model(monkeypatch, draft(), '{}', '{}')
+    with pytest.raises(ValueError, match='one correction'):
         careplan.generate(ctx())
-    assert provider.calls == 4
+    assert provider.calls == 3
 
 
 def test_failed_model_keeps_application_owned_urgent_instruction(monkeypatch, store):

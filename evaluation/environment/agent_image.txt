@@ -1,0 +1,5 @@
+# Benchmark agent image: built by setup A's run startup (docker compose up --build) on 2026-10-25; setups B–F were started with 'docker compose up --no-build' on this same image.
+# recorded 2026-11-21T17:36Z via: docker image inspect cp-benchmark-agent:latest
+image_id=sha256:7c9d9e7dfab68b1560e42ba5d068957d7f3cdc47a9ffd5c1b14842543a8772a3
+created=2026-10-25T13:20:24.534410893Z
+first run (setup A) measured_started_at=2026-10-25T13:26:58.562407+00:00

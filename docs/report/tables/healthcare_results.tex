@@ -1,0 +1,28 @@
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Setup & A & B & C & D & E & F \\
+Model & 27B & 27B & 27B & 8B & 8B & 8B \\
+Weights / KV & BF16/default & Q8\_0/default & Q8\_0/q8\_0 & BF16/default & Q8\_0/default & Q8\_0/q8\_0 \\
+Engine & vLLM & llama.cpp & llama.cpp & vLLM & llama.cpp & llama.cpp \\
+\midrule
+Completed plans & 100 & 100 & 100 & 84 & 81 & 78 \\
+Valid grades & 99 & 95 & 97 & 82 & 80 & 77 \\
+\textbf{Passed plans} & \textbf{86} & \textbf{77} & \textbf{80} & \textbf{53} & \textbf{48} & \textbf{44} \\
+Mean score & 91.61 & 89.56 & 90.19 & 81.29 & 81.88 & 80.52 \\
+Critical failures & 1 & 2 & 1 & 1 & 4 & 1 \\
+Pass, routine (/87) & 81 & 73 & 75 & 51 & 47 & 43 \\
+Pass, urgent (/12) & 4 & 3 & 4 & 2 & 1 & 1 \\
+Pass, emergency (/1) & 1 & 1 & 1 & 0 & 0 & 0 \\
+\midrule
+Case latency p50 (s) & 48.9 & 69.6 & 68.5 & 24.4 & 23.5 & 25.3 \\
+Case latency p95 (s) & 64.6 & 86.1 & 88.1 & 35.0 & 33.7 & 33.9 \\
+Care-plan job p50 (s) & 29.1 & 40.4 & 40.5 & 14.7 & 14.7 & 16.3 \\
+Input tokens/case & 23,175 & 22,840 & 23,197 & 23,827 & 23,854 & 23,703 \\
+Output tokens/case & 1,831 & 1,797 & 1,821 & 1,683 & 1,716 & 1,734 \\
+LLM calls & 805 & 800 & 805 & 828 & 827 & 826 \\
+Run wall-clock (s) & 5,108 & 7,073 & 7,210 & 2,690 & 2,526 & 2,667 \\
+\midrule
+Cost per case (INR) & 2.55 & 3.54 & 3.60 & 1.35 & 1.26 & 1.33 \\
+\textbf{Cost per pass (INR)} & \textbf{2.97} & \textbf{4.59} & \textbf{4.51} & \textbf{2.54} & \textbf{2.63} & \textbf{3.03} \\
+\bottomrule
+\end{tabular}

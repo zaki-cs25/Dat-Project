@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-specific
+node_modules/
+**/.env
+*.local.json
+.claude/
+.codex/
+HealthAgent/benchmarks/runs/
+HealthAgent/md_care_documents/
+HealthAgent/care-documents/
+infra_samples.csv
+metrics.jsonl

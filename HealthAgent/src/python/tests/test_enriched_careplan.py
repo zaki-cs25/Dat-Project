@@ -5,7 +5,7 @@ import httpx
 import pytest
 from central_park import careplan, care_jobs, care_evidence
 from central_park.config import load
-from test_careplan import ctx, source, draft, Provider
+from test_careplan import ctx, source, draft, Provider, checks, rejected
 
 
 @pytest.fixture(autouse=True)
@@ -21,7 +21,7 @@ def model_draft(description='Discuss recorded blood-pressure monitoring with the
 
 
 def review(**changes):
-    return {'approved': True, 'issues': [], 'review_notes': [], **changes}
+    return {'approved': True, 'issues': [], 'checks': checks(), **changes}
 
 
 def setup(monkeypatch, *responses, sources=None):
@@ -87,7 +87,7 @@ def test_urgent_assessment_is_first_even_without_context(monkeypatch, priority):
     assert result['activities'][0]['source_ids'] == ['ServiceRequest/a']
 
 
-@pytest.mark.parametrize('bad', ['not-json', draft(ids=['fabricated']), model_draft('Start metformin 500 mg daily.')])
+@pytest.mark.parametrize('bad', ['not-json', draft(ids=['fabricated'])])
 def test_malformed_fabricated_and_prohibited_output_still_fail(monkeypatch, bad):
     provider = setup(monkeypatch, bad, bad, sources=[source()])
     with pytest.raises(ValueError, match='one repair'):
@@ -96,7 +96,9 @@ def test_malformed_fabricated_and_prohibited_output_still_fail(monkeypatch, bad)
 
 
 def test_reviewer_may_note_absent_support_without_blocking(monkeypatch):
-    setup(monkeypatch, model_draft(), review(review_notes=['This model suggestion is not supported by supplied excerpts.']), sources=[source()])
+    proposed = model_draft()
+    proposed['review_notes'] = ['This model suggestion is not supported by supplied excerpts.']
+    setup(monkeypatch, proposed, review(), sources=[source()])
     result = careplan.generate(ctx())
     assert result['result_status'] == 'completed'
     assert any('not supported' in note for note in result['review_notes'])
@@ -104,15 +106,17 @@ def test_reviewer_may_note_absent_support_without_blocking(monkeypatch):
 
 def test_prohibited_reviewer_narrative_is_also_rejected(monkeypatch):
     provider = setup(monkeypatch, model_draft(), review(review_notes=['Start metformin 500 mg daily.']),
-                     model_draft(), review(review_notes=['Start metformin 500 mg daily.']))
-    with pytest.raises(ValueError, match='dose|drug'):
+                     review(review_notes=['Start metformin 500 mg daily.']))
+    with pytest.raises(ValueError, match='one correction'):
         careplan.generate(ctx())
-    assert provider.calls == 4
+    assert provider.calls == 3
 
 
 def test_invented_patient_fact_review_rejection_still_blocks(monkeypatch):
-    reject = review(approved=False, issues=['Invented normal BP not present in record'])
-    provider = setup(monkeypatch, model_draft(), reject, model_draft(), reject)
+    proposed = model_draft('The patient has normal BP.')
+    reject = rejected('The patient has normal BP.', 'Invented normal BP not present in record', 'patient_facts')
+    reject.pop('applicable_source_ids')
+    provider = setup(monkeypatch, proposed, reject, proposed, reject)
     with pytest.raises(ValueError, match='Invented normal BP'):
         careplan.generate(ctx())
     assert provider.calls == 4

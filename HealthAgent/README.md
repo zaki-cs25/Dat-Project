@@ -1,6 +1,6 @@
 # ICMR Care Plans
 
-A local college showcase with patient registration, an adaptive multilingual interview, and read-only care-plan drafts for clinicians. InterSystems IRIS stores the FHIR R4 records and vector collections; FastAPI runs the interview and one durable generation worker; React provides the patient and clinician interfaces.
+A local college showcase with patient registration, an adaptive English interview, and read-only care-plan drafts for clinicians. InterSystems IRIS stores the FHIR R4 records and vector collections; FastAPI runs the interview and one durable generation worker; React provides the patient and clinician interfaces.
 
 The LLM can use its own knowledge to propose recommendations. Retrieved ICMR passages enrich its context; recommendations are not restricted to those excerpts or automatically attributed to ICMR. The clinician panel groups sources under **Retrieved ICMR context**, without citation dropdowns or model provenance labels under individual activities. Provenance and source snapshots remain stored with each draft.
 
@@ -55,7 +55,7 @@ The template's agent port defaults to 8001; set `CP_AGENT_PORT=8002` when chat a
 
 ## Use the application
 
-1. Open **Patient intake** and choose a language.
+1. Open **Patient intake**. The interview is in English.
 2. Select **New patient**, enter full name, date of birth and gender (or prefer not to say), then click **Register and start interview**. Keep the assigned patient ID for later visits.
 3. Returning patients select **Existing patient** and enter their saved ID. Seeded synthetic IDs are `demo-patient-1` through `demo-patient-7`; `synthetic-hypertension` is available for a separate routine hypertension demonstration.
 4. Complete the interview. The completion screen shows the assessment's guidance while a FHIR Task queues the care-plan draft in the background.

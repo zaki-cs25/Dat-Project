@@ -1,0 +1,19 @@
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Metric & Qwen3.6-27B & Gemma-4-26B-A4B & Qwen3-8B \\
+\midrule
+Parallel workers & 8 & 8 & 1 \\
+Returned a verdict & 87/120 & 111/120 & 82/120 \\
+\textbf{Verdict correct} & \textbf{49.2\%} & \textbf{53.3\%} & \textbf{23.3\%} \\
+Amount within 1\% & 38.3\% & 43.3\% & 19.2\% \\
+Amount exact & 31.7\% & 35.8\% & 12.5\% \\
+Verdict correct, of returned & 67.8\% & 57.7\% & 34.1\% \\
+Latency p50 (s) & 228.5 & 321.2 & 109.5 \\
+Latency p95 (s) & 335.7 & 470.8 & 344.4 \\
+Input tokens/case & 6,538 & 17,666 & 10,255 \\
+Output tokens/case & 4,305 & 8,673 & 6,494 \\
+Run wall-clock (s) & 3,530 & 4,967 & 19,711 \\
+Cost per case (INR) & 1.47 & 2.07 & 8.21 \\
+Cost per correct verdict (INR) & 2.99 & 3.88 & 35.20 \\
+\bottomrule
+\end{tabular}

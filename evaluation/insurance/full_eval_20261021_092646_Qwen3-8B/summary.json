@@ -1,0 +1,55 @@
+{
+  "n_cases": 120,
+  "workers": 1,
+  "resolved_rate": 0.0,
+  "resolved_count": 0,
+  "cost": {
+    "per_task": {
+      "mean": 8.212729,
+      "median": 5.47525,
+      "p95": 17.219725
+    },
+    "per_solved_task": {
+      "mean": null
+    }
+  },
+  "latency": {
+    "per_task": {
+      "mean": 164.25,
+      "median": 109.5,
+      "p95": 344.39
+    },
+    "batch_wall_clock_seconds": 19711.4
+  },
+  "tokens": {
+    "total_input": 1230563,
+    "total_output": 779302
+  },
+  "steps": {
+    "mean": 1.0,
+    "median": 1.0
+  },
+  "secondary_signals": {
+    "empty_patch_rate": 1.0,
+    "patch_apply_rate": null
+  },
+  "model_mix": {
+    "vllm/Qwen3.6-27B": 120
+  },
+  "sub_metrics": {
+    "fully_correct": 0.0,
+    "verdict_match": 0.2333,
+    "amount_exact": 0.125,
+    "amount_within_1pct": 0.1917,
+    "clause_f1": 0.0,
+    "pred_payable": 74801.622,
+    "gold_payable": 41877.5917
+  },
+  "self_hosted": {
+    "gpu_cost_per_hour": 180.0,
+    "batch_wall_clock_seconds": 19711.4,
+    "workers": 1,
+    "cost_per_task_serial": 8.2131,
+    "cost_per_solved_task": Infinity
+  }
+}

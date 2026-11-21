@@ -1,119 +1,96 @@
-# Full enriched benchmark run
+# CarePlan100 run record
 
-Status: measurement completed for `full-enriched-02`; all 30 cases attempted. Astra grading of all 13 completed plans is complete and imported. All results are saved inside the project workspace.
+Updated 2026-10-25. The obsolete 30-case folder was cleared at the user’s request; its small summary archive remains in [history](history/benchmark-v1-summary-20261024.zip).
 
-## Requested workload
+## Fresh uninterrupted run after validation correction
 
-| Setting | Value |
-| --- | --- |
-| Dataset | All 30 original synthetic cases: 10 development, 20 evaluation |
-| Care generation mode | `enriched` |
-| ICMR context | Enabled only (`icmr-on`) |
-| Measured care jobs | 30 |
-| Interview workload | Four recorded transcript prefixes per case, 120 requests |
-| Repetitions / session concurrency | 1 / 1 |
-| Warmup sessions / metrics interval | 0 / 2 seconds |
-| API | Isolated benchmark app, `http://localhost:8003` |
-| Serving models | Qwen3.6-27B via vLLM; BGE-M3 GGUF Q8_0, 1024 embedding dimensions |
-| Quality judge | Astra in Codex; a new grading batch needs user approval |
+The latest run is `benchmarks/runs/20261025T101108Z-5f28651a/`. It was run after the medication/provenance validation correction in [BENCHMARK_VALIDATION_FIX.md](BENCHMARK_VALIDATION_FIX.md), using the unchanged 100-case dataset, criteria, weights and pass threshold. This is a single uninterrupted measurement; it is distinct from the two-segment combined run documented below.
 
-No grounded or ICMR-off generations are included. This is a single baseline run; it does not establish run-to-run variation or serving capacity under concurrent load. Clinical packets and criteria remain draft pending independent clinical review. The development and evaluation split stays visible in reports.
+| Cohort | Cases | Completed | Failed validation |
+| --- | ---: | ---: | ---: |
+| Everyday OPD | 50 | 46 | 4 |
+| Chronic | 30 | 26 | 4 |
+| Minor injury | 20 | 18 | 2 |
+| Total | 100 | 90 | 10 |
 
-## Preflight and freeze
+The 10 terminal validation failures were CHR-008, CHR-011, CHR-026, CHR-030, INJ-004, INJ-008, OPD-016, OPD-017, OPD-029 and OPD-050. Each retained its draft attempts and failed after one repair. All 100 selected inputs, serving profiles and traces verified; all 100 cases have exactly four recorded interview responses (400 total). The run recorded 8,062 app API requests, no app API request errors, 819 LLM attempts with native timing and token fields present, and 2,690 infrastructure samples. Elapsed measurement time was 5,713.63 seconds (about 1 hour 35 minutes). No source, prompt, dataset or rubric changes were made during measurement.
 
-The negation persistence fix was exercised through a fresh HTN-01 enriched/ICMR-on run before starting the full set. Care generation completed. Its full clinical packet and frozen context hash matched, and no positive symptom observations were written from the denial.
+The configured Gemma API judge was invoked for all 90 completed plans, but all 90 requests failed with `ConnectError` before receiving an HTTP response. Therefore **completed-plan grade coverage is 0/90**; all 90 completed-plan scores and critical status are unknown, and no quality pass claim can be made. The 10 valid generation failures are retained as zero scores under the scoring rule. No automatic retries were configured. The raw requests, errors and ungraded rows remain in `grades/20261025T114701Z-780e1600/`.
 
-- [Preflight verification](../benchmarks/api_benchmark/runs/preflight-06-verification.json).
-- [Saved preflight job snapshot](../benchmarks/api_benchmark/runs/preflight-06-job-snapshot.json).
-- [Full-run setup and application hashes](../benchmarks/api_benchmark/runs/full-enriched-02-setup.json), with a Python source archive beside it.
+Run and grade integrity checks are recorded in [`benchmarks/runs/luna-fresh-verification.json`](../benchmarks/runs/luna-fresh-verification.json); live/final progress is in [`benchmarks/runs/luna-fresh-progress.json`](../benchmarks/runs/luna-fresh-progress.json). All 27 measurement artifact hashes and all five grade artifact hashes verified. The frozen config, dataset, source and profile fingerprints are recorded in the run manifest and verification file.
 
-The full run follows that separate preflight; caches were not reset. Explicit sampling settings, weights identity and serving-host hardware remain undeclared in the current profile, so server defaults and uncontrolled background activity limit formal comparisons. The existing indexed source versions and source/review file hashes were checked before measurement. Application prompts/code and model configuration are frozen during the run. Failures will be retained rather than replaced with successful reruns.
+## Earlier combined run
 
-## Interrupted first attempt
+The report below describes the earlier run captured across two segments. It is retained for historical comparison; the fresh uninterrupted run above is the latest measurement.
 
-`full-enriched-01` was stopped after six recorded outcomes when two fixtures were rejected before model inference. Text-only conditions incorrectly included an empty `coding` array, which FHIR rejects. Its queued care job was allowed to finish, and the manifest is marked aborted, incomplete and unsuitable for clinical review. Original raw files remain preserved; the interruption manifest, drain snapshot/trace and audit are beside the folder.
+## Selected 100-case results
 
-The only application change for `full-enriched-02` omits that empty array and retains the original condition text. All 30 fixtures (178 resources) passed FHIR `$validate` without persistence or model calls. The new run has fresh identities and a new source archive. No clinical prompts, cases, rubrics or serving settings changed. Cache state includes the earlier partial run; no cache reset was performed.
+The combined report is `benchmarks/runs/careplan100-combined-20261024T210139Z/`.
 
-- [FHIR validation](../benchmarks/api_benchmark/runs/full-enriched-02-fixture-validation.json).
-- [First-attempt interruption audit](../benchmarks/api_benchmark/runs/full-enriched-01-abort.json).
+| Cohort | Cases | Completed | Failed validation |
+| --- | ---: | ---: | ---: |
+| Everyday OPD | 50 | 47 | 3 |
+| Chronic | 30 | 28 | 2 |
+| Minor injury | 20 | 18 | 2 |
+| Total | 100 | 93 | 7 |
 
-## Saved result files
+All 100 selected results have verified full clinical packets, stable serving profile and ready traces. Development: 20 completed / 20. Evaluation: 73 completed / 80. There are exactly 400 selected interview API requests and no interview API errors. Interview quality and triage quality are not scored. All care jobs used enriched mode and ICMR enabled; retrieval availability is retained per case.
 
-All files are under `benchmarks/api_benchmark/runs/` inside the workspace. Run folders are ignored by Git but exist on disk.
+The local API judge has now evaluated all 93 completed plans. **83 have valid grades**, averaging **90.15/100**; **70 meet the predefined pass rule**, and one valid judgment contains a critical flag. **Ten remain ungraded** because returned evidence was missing or was not an exact excerpt. The seven valid generation failures retain zero scores. Judge coverage is 83/93 completed plans (89.25%). An all-100 quality average remains unavailable because ten scores are unknown. These are automated judge results. No Astra grading batch was launched.
 
-- `full-enriched-02/results.jsonl`: one incremental outcome per case, including draft or failure, input/profile/source identities and care timings.
-- `full-enriched-02/requests.jsonl`: client durations/statuses for interviews, assessment, enqueue, polling, metrics and trace fetches.
-- `full-enriched-02/interviews.jsonl`: returned interview questions and stop reasons; no interview quality score.
-- `full-enriched-02/traces.jsonl`: model attempts, application spans, retries/repairs and packet/source audits.
-- `full-enriched-02/metrics.jsonl`: raw timestamped backend/host snapshots and component availability.
-- `full-enriched-02/manifest.json`: selected identities, configuration and eventual measurement hashes.
-- `full-enriched-02/report.json` and `report.md`: final performance/quality coverage summaries, regenerated after any approved grading.
-- `full-enriched-02-progress.json`: separate progress record; not part of measured request traffic.
-- `full-enriched-02-verification.json`: engineering checks after completion.
+## Earlier combined-run CSV files
 
-Serving metrics are available. Embedding metrics return HTTP 501, and serving-host GPU utilization/VRAM needs an exporter; container-local host readings are labeled separately. Missing metrics stay unknown. Failed generations score zero in the all-attempt quality mean; completed outputs remain ungraded until valid Astra judgments are imported. No new Astra agent is authorized by the earlier one-plan pilot approval.
+- `cases.csv`: 100 case outcomes, plan JSON, timings, input/profile flags and source segment.
+- `case_stage_metrics.csv`: per-case/per-stage timing, rate and token distributions, with units and coverage.
+- `llm_attempts.csv`: 820 distinct HTTP attempts; native TTFT, mean inter-token latency, token rate and prompt/completion counts are available for all 820.
+- `summary.csv`: pooled performance distributions and completion counts.
+- `failures.csv`: 21 cases with terminal failures, repaired/rejected attempts or upstream conflicts. Filter `status != completed` for the seven terminal failures.
+- `infra_samples.csv`: 2,608 periodic infrastructure snapshots with their collection scope and availability. These are segment aggregates, not per-case GPU measurements.
+- `grades/20261025T074202Z-3eaddd15/cases.csv`: latest performance/quality join, with 83 valid grades, ten ungraded results and seven generation failures.
+- `grades/20261025T074202Z-3eaddd15/rubric_results.csv`: 681 criterion/global-check or not-judged rows. Its `summary.csv` has overall/split/group/condition results.
+- The initial unconfigured revision `grades/20261024T210151Z-25e86b1e/` remains preserved.
 
-## Measurement results
+Raw JSONL and artifact hashes remain alongside the CSVs. Export checks are saved in `benchmarks/runs/full-verification.json`.
 
-Measured run ID: `70d0352f-1719-48a3-883b-f1b3af1e556f`. Elapsed time: 3,042.62 seconds (50.71 minutes). All 30 care jobs reached a terminal state and finished tracing, with no outstanding jobs, ambiguous submissions or trace capture errors. The measurement manifest reports protocol validity. Artifact hashes, clinical packet hashes, profile identity, source pins and care-job lineage checks passed.
+## Earlier combined-run performance interpretation
 
-| Condition | Completed care plans | Failed validation |
-| --- | ---: | ---: |
-| Asthma | 4 | 2 |
-| CKD | 2 | 4 |
-| COPD | 5 | 1 |
-| Hypertension | 2 | 4 |
-| Type 2 diabetes | 0 | 6 |
-| **Total** | **13** | **17** |
+| Metric | Mean | Median | p95 |
+| --- | ---: | ---: | ---: |
+| Interview API latency | 3.21 s | 3.38 s | 4.30 s |
+| Care job latency, enqueue through final trace | 37.34 s | 31.78 s | 57.92 s |
+| Whole case operation | 58.54 s | 53.15 s | 81.30 s |
+| Native first-token latency, all LLM stages | 0.784 s | 0.539 s | 2.210 s |
+| Native mean inter-token latency | 21.27 ms | 20.74 ms | 23.83 ms |
 
-Completion rate is 43.33%. All 17 failures report `Draft failed validation after one repair.` This describes application acceptance, not a clinical quality score. No failed case was replaced with a successful retry.
+Statistics include both successful and failed selected cases. Native token rate averages 35.35 tokens/s with server scope `prefill_and_decode`; it is not decode-only throughput. Judge calls are outside performance measurement.
 
-| Measurement | Samples | Mean | Median | p95 |
-| --- | ---: | ---: | ---: | ---: |
-| Interview API latency | 120 | 3.29 s | 3.55 s | 4.60 s |
-| Care operation latency, all outcomes | 30 | 78.51 s | 78.27 s | 127.90 s |
-| Care operation latency, completed only | 13 | 53.99 s | 58.16 s | 72.46 s |
-| Care worker processing, all outcomes | 30 | 76.35 s | 75.73 s | 125.72 s |
-| Application worker queue, all outcomes | 30 | 1.47 s | 1.51 s | 2.87 s |
-| Native vLLM interview TTFT | 120 | 0.52 s | 0.49 s | 0.64 s |
-| Native vLLM care-generation TTFT, including repair calls | 51 | 1.62 s | 1.96 s | 3.35 s |
+This is a combined report from **two measurement segments**, not one uninterrupted run. The first runner stopped after 88 saved results and started one additional OPD-039 case without saving a final result. The LLM was restarted before a 12-case continuation. The unfinished original OPD-039 records are excluded from combined case/request/attempt statistics and remain preserved in the original directory. Original aggregate samples are truncated at the start of that excluded case. Server caches were not controlled across the restart, so pooled distributions describe these two segments. Overall wall-clock throughput is intentionally unavailable because the first segment’s final elapsed timer was not saved.
 
-Care operation timing starts at care enqueue and ends at the observed terminal/traced result; it excludes interview and assessment latency. Completed-only distributions in the standard report use 13 samples. The separate summary includes all 30 outcomes to expose failure/repair latency. TTFT is provider-native; first streamed content timing is separately recorded in `report.json`.
+Preserved segments:
 
-There were 259 unique model HTTP attempts and 259 logical calls, including 51 care-generation attempts (21 repair calls). All attempts expose prompt/completion usage and native vLLM timing; total known usage is 882,895 prompt tokens and 103,039 completion tokens. This counts repeated prompt processing and repairs, not unique clinical text. No HTTP model retries or truncation were recorded.
+1. `benchmarks/runs/20261024T152741Z-beac6444/`: 88 selected results, plus excluded unfinished OPD-039 traces. Its original manifest still records the abrupt process’s last status, `running`.
+2. `benchmarks/runs/20261024T205027Z-08964375/`: 12 results, completed with valid protocol checks.
 
-There are 1,401 infrastructure snapshots. Serving and container-host metrics are available for all snapshots; embedding metrics return 501 and GPU readings are unavailable. Twenty-nine jobs had available ICMR context; CKD-02 returned no matching passages. ICMR remained enabled for that case; it is not an ICMR-off variant. Source presence does not prove clinical support.
+Dataset, application/harness source and serving profile fingerprints match between segments. The combined manifest retains each source run ID and manifest hash. The measured source snapshot is `benchmarks/runs/careplan100-full-source-20261024.zip`; its audit file stores the archive hash. Startup diagnostics and build-copy changes made after measurement are not part of that frozen source.
 
-All 120 interview requests were attempted. AST-06 turn 2 returned HTTP 502, leaving 119 successful saved interview responses. This is retained as an API failure and a limitation on complete four-response interviews; the full original clinical packet still reached care generation. No interview quality score is produced.
+## Failures retained
 
-- [Machine-readable result report](../benchmarks/api_benchmark/runs/full-enriched-02/report.json).
-- [Standard report](../benchmarks/api_benchmark/runs/full-enriched-02/report.md).
-- [All-outcome timing summary](../benchmarks/api_benchmark/runs/full-enriched-02-summary.json).
-- [Integrity verification](../benchmarks/api_benchmark/runs/full-enriched-02-verification.json).
-- [Grading approval record](../benchmarks/api_benchmark/runs/full-enriched-02/review/approval.json).
+CHR-022 failed twice because a routine referral was incorrectly labelled `provenance=assessment`, which is reserved for application-inserted activities. The old error text misleadingly described this as an urgent-instruction error. CHR-026, INJ-008, INJ-014, OPD-017, OPD-042 and OPD-050 failed twice on the unrecorded medication/class guard. These are application validation outcomes; the guard can also reject safety-review wording. They do not independently establish that each rejected plan was clinically harmful. Candidates, fields and exact rejection feedback are retained for later analysis. No guard or prompt tuning was performed on these evaluation failures.
 
-## Quality review
+## Startup recovery and development pilot
 
-The user explicitly approved Astra grading of the 13 completed plans. All 13 judgments passed structural and exact-evidence validation and were imported; reports were regenerated. Measurement inputs, results, traces, metrics and manifest hashes remained unchanged. Seventeen failed generations receive deterministic zero in the all-attempt score, with critical safety status unknown.
+Docker’s internal 32 GB disk filled during a later startup rebuild. Clearing unused build cache reclaimed 9.15 GB; database volumes were retained. External model probes now fail early and Compose errors include their output tail. The IRIS image copies only `src/cls` and `iris-config`, preventing app/report/docs edits from forcing database rebuilds. The final startup function completed successfully with both model probes ready, a 1024-dimensional embedding and index publication confirmed. Its result is saved in `benchmarks/runs/startup-verification.json`. Startup recovery was checked separately from the completed benchmark measurements.
 
-| Quality result | Value |
-| --- | ---: |
-| Completed-plan mean, 13 graded outputs | 71.53 / 100 |
-| All-attempt mean, 30 cases including failed generations as zero | 31.00 / 100 |
-| Completed outputs with critical rubric flags | 7 / 13 (53.85%) |
-| Completed grading coverage | 13 / 13 (100%) |
+The original four-case development pilot used single-script startup and completed CHR-007, INJ-011, OPD-001 and OPD-045, with valid input/profile checks, 16 interview calls and CSV export. Measurement duration was 237.13 seconds. Its artifacts remain in `benchmarks/runs/20261024T151805Z-09639e8b/`. A narrow factual-adherence guard correction was made after this pilot and before evaluation, with no dataset/rubric changes.
 
-Weights apply to case-specific criteria. Global checks and critical criteria produce separate flags; they do not gate the numerical score. A plan can therefore score 100 while receiving a global critical flag. These scores and flags use draft rubrics and are not clinically validated safety estimates.
+## Earlier combined-run API judge
 
-Recurring issues include incomplete compound requirements, missing follow-up conditions or urgent-care guidance, and assertions unsupported by the original packet. Some patient-facts flags concern metadata supplied through the fixture: medication resources are marked status `unknown`, and exact birth dates are synthesized from age. Those flags measure consistency with the original packet and cannot by themselves establish model-origin hallucination. This limitation is retained without modifying the frozen rubric or rescoring.
+Endpoint: `http://localhost:8001/v1`. Advertised model: `unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q8_K_XL`. Private reusable configuration: `benchmarks/careplan100/config.local.json`, with credentials read from the named environment variable when needed. This local endpoint accepted requests without authentication. Grading used temperature 0, 4,096 output tokens, JSON object response mode, concurrency 1 and `chat_template_kwargs.enable_thinking=false`. The first compatibility request exhausted its 2,500-token budget on reasoning; the updated compatibility check returned a valid rubric response before the full batch began. Compatibility records are stored separately from final judge traffic.
 
-- [Saved Astra judgments](../benchmarks/api_benchmark/runs/full-enriched-02/review/astra-judgments.jsonl).
-- [All 30 grade records](../benchmarks/api_benchmark/runs/full-enriched-02/grades.jsonl).
-- [Grading summary](../benchmarks/api_benchmark/runs/full-enriched-02/review/grading-summary.json).
+Grading version 1.1 makes the JSON array/object contract explicit, supports provider options through `judge.extra_body` and journals completed judgments. Clinical packets, rubric criteria/weights and pass thresholds were unchanged. Exact evidence checks remain enforced. Raw model responses for all 93 API calls and usage are retained in the new grade revision. Usage totals: 192,309 prompt tokens, 57,732 completion tokens, 250,041 total. Judge usage and latency are outside the serving measurement.
 
-Rubrics remain draft and require independent clinical review.
+The ten ungraded cases are CHR-007, CHR-008, CHR-029, INJ-004, INJ-009, INJ-019, OPD-018, OPD-019, OPD-033 and OPD-037. Their scores remain unknown. The judge configuration, coverage, error list and integrity verification are saved in `benchmarks/runs/judge-verification-20261025.json`.
 
-## Subsequent failure diagnosis
+## Validation correction applied before the fresh run
 
-[Detailed validation failure analysis](BENCHMARK_VALIDATION_FAILURES.md) maps all 17 terminal blockers from server logs. Eight involve blanket medication-name/dose restrictions, six involve age review rejections with conflicting upstream assessment ages, two involve urgent-disposition review, and one an invalid/missing citation. Reviewer age errors and unavailable rejected drafts limit attribution. Original measurement and grades remain preserved.
+After the earlier combined run and its API judging, the application medication/provenance checks and future judge guidance were updated. The fresh run at the top of this record measured that corrected application. See [the fix record](BENCHMARK_VALIDATION_FIX.md). The correction does not revise any result from the earlier run.

@@ -6,6 +6,16 @@ from central_park.config import load
 
 BASE = json.loads((Path(__file__).parent / 'data/care_conditions.json').read_text())
 TAG = re.compile(r'^[a-z][a-z0-9-]{0,63}$')
+# Text-only retrieval synonyms for sections actually present in the ICMR corpus.
+# They do not create diagnoses/codes or assert that a passage applies to an adult.
+RETRIEVAL_ALIASES = {
+    'eczema-dermatitis': ['contact dermatitis', 'established contact dermatitis'],
+    'headache': ['episodic tension headache', 'established episodic tension headache'],
+    'lower-back-pain': ['nonspecific low back pain', 'established nonspecific low back pain'],
+    'pharyngitis-and-sore-throat': ['viral pharyngitis', 'established viral pharyngitis',
+                                   'uncomplicated viral pharyngitis'],
+    'ckd': ['ckd g3a', 'ckd g3b'],
+}
 
 
 def normalized(value):
@@ -40,6 +50,9 @@ def catalogue(path=None, base=None):
         result[tag] = dict(aliases=sorted({normalized(a) for a in aliases + old.get('aliases', [])}),
                            codes=[list(c) for c in sorted({tuple(c) for c in codes + old.get('codes', [])})],
                            code_prefixes=old.get('code_prefixes', []))
+    for tag, aliases in RETRIEVAL_ALIASES.items():
+        if tag in result:
+            result[tag] = {**result[tag], 'aliases': sorted(set(result[tag]['aliases'] + aliases))}
     return result
 
 

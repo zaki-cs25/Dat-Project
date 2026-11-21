@@ -1,0 +1,10 @@
+{
+  "pilot_run": "benchmarks/runs/20261024T151805Z-09639e8b",
+  "status": "completed",
+  "care_jobs": 4,
+  "completed": 4,
+  "protocol_valid": true,
+  "interview_requests": 16,
+  "lesson": "One first-attempt medication-review activity was rejected for verifying existing adherence; the repaired plan completed. Before evaluation, narrowed the guard to exempt factual verification from take/use/continue detection while keeping start/change actions blocked.",
+  "dataset_or_rubric_changes": false
+}

@@ -1,3 +1,5 @@
+> Historical V1 record: the old benchmark artifacts were cleared on 2026-10-24 at the user's request. Summary evidence is preserved in `docs/history/benchmark-v1-summary-20261024.zip`. The active benchmark is CarePlan100.
+
 # Full-run validation failure analysis
 
 Run: `full-enriched-02`. Read-only post-run diagnosis; no measurement or clinical logic changes.

@@ -7,7 +7,6 @@ import { IntakeDoneScreen } from "@/components/IntakeDoneScreen";
 import { createQuestionnaireResponse, runInterview, ApiError } from "@/api";
 import type { ProcessStep } from "@/App";
 import type { Handoff, QA } from "@/types";
-import type { Language } from "@/data/questions";
 
 type Phase = "setup" | "interview" | "processing" | "done";
 
@@ -21,11 +20,9 @@ export function PatientIntakeApp() {
   const [handoff, setHandoff] = useState<Handoff | null>(null);
   const [step, setStep] = useState<ProcessStep>("fhir");
   const [error, setError] = useState<{ title: string; detail?: string } | null>(null);
-  const [language, setLanguage] = useState<Language>("English");
 
-  function startIntake(id: string, lang: Language) {
+  function startIntake(id: string) {
     setPatientId(id);
-    setLanguage(lang);
     setAnswers([]);
     setError(null);
     setPhase("interview");
@@ -75,7 +72,6 @@ export function PatientIntakeApp() {
         {phase === "interview" && (
           <AdaptiveInterviewScreen
             patientId={patientId}
-            language={language}
             onComplete={submit}
             onCancel={reset}
           />

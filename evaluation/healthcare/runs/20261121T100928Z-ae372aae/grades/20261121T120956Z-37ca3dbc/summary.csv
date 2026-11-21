@@ -1,0 +1,39 @@
+revision,dimension,value,attempts,unique_cases,completed,generation_failures,graded_completed,ungraded_completed,grade_coverage,completed_mean_score,all_attempt_case_macro_score,critical_flags,critical_flag_rate,unknown_critical_count,passes,pass_threshold,judge_cost
+20261121T120956Z-37ca3dbc,overall,all,100,100,100,0,0,100,0.0,,,0,,100,0,80,unknown
+20261121T120956Z-37ca3dbc,split,development,20,20,20,0,0,20,0.0,,,0,,20,0,80,unknown
+20261121T120956Z-37ca3dbc,split,evaluation,80,80,80,0,0,80,0.0,,,0,,80,0,80,unknown
+20261121T120956Z-37ca3dbc,group,chronic,30,30,30,0,0,30,0.0,,,0,,30,0,80,unknown
+20261121T120956Z-37ca3dbc,group,injury,20,20,20,0,0,20,0.0,,,0,,20,0,80,unknown
+20261121T120956Z-37ca3dbc,group,opd,50,50,50,0,0,50,0.0,,,0,,50,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Allergic rhinitis,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,CKD,6,6,6,0,0,6,0.0,,,0,,6,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,COPD,6,6,6,0,0,6,0.0,,,0,,6,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Common cold,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Established acute gastroenteritis,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Established contact dermatitis,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Established dyspepsia,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Established episodic tension headache,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Established haemorrhoids,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Established nonspecific low back pain,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Established uncomplicated constipation,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,Established viral pharyngitis,5,5,5,0,0,5,0.0,,,0,,5,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,ankle sprain,3,3,3,0,0,3,0.0,,,0,,3,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,asthma,6,6,6,0,0,6,0.0,,,0,,6,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,calf strain,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,forearm abrasion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,forearm contusion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,hypertension,6,6,6,0,0,6,0.0,,,0,,6,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,knee abrasion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,minor superficial partial-thickness scald,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,minor superficial scald,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,minor superficial thermal burn,2,2,2,0,0,2,0.0,,,0,,2,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,shin contusion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,shoulder muscle strain,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,superficial finger cut,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,superficial forearm cut,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,superficial hand cut,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,superficial thumb cut,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,thigh contusion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,type 2 diabetes,6,6,6,0,0,6,0.0,,,0,,6,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,upper-arm contusion,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown
+20261121T120956Z-37ca3dbc,condition,wrist sprain,1,1,1,0,0,1,0.0,,,0,,1,0,80,unknown

@@ -1,5 +1,6 @@
 """Strict, lossless FHIR context for care planning; interview reader stays unchanged."""
 from datetime import date
+from copy import deepcopy
 import re
 from central_park.tools.fhir import _client, PatientNotFoundError
 from central_park.telemetry import timed
@@ -86,16 +87,8 @@ def context(patient_id, questionnaire_id, assessment_id):
 
 
 def age_years(patient, as_of=None):
-    try:
-        born = date.fromisoformat(patient['birthDate'])
-        pinned = next((e.get('valueDate') for e in patient.get('extension', [])
-                       if e.get('url') == 'https://centralpark.example/fhir/StructureDefinition/benchmark-as-of-date'), None)
-        today = as_of or (date.fromisoformat(pinned) if pinned else date.today())
-        if born > today:
-            return None
-        return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-    except (KeyError, ValueError):
-        return None
+    from central_park.patient_facts import demographic_facts
+    return demographic_facts(patient, as_of)['age_years']
 
 
 def adult(patient):
@@ -105,9 +98,43 @@ def adult(patient):
 
 def record_facts(ctx):
     """Explicit facts for generation/review; empty lists do not establish absence."""
-    pinned = next((e.get('valueDate') for e in ctx['patient'].get('extension', [])
-                   if e.get('url') == 'https://centralpark.example/fhir/StructureDefinition/benchmark-as-of-date'), None)
-    return {'as_of_date': pinned or date.today().isoformat(), 'age_years': age_years(ctx['patient']),
-            'recorded_gender': ctx['patient'].get('gender'),
+    from central_park.patient_facts import demographic_facts
+    return {**demographic_facts(ctx['patient']),
             'record_counts': {key: len(ctx[key]) for key in ('conditions', 'medications', 'observations', 'allergies')},
             'empty_record_meaning': 'No matching resources recorded; not confirmation of absence, no medicines, normal values or resolved symptoms.'}
+
+
+def effective_disposition(assessment, packet=None):
+    """One existing urgency-floor policy shared by model context and app output."""
+    ranks = {'routine': 0, 'urgent': 1, 'asap': 1, 'stat': 2, 'emergency': 2}
+    rank = max(ranks.get(assessment.get('priority'), 0),
+               ranks.get((packet or {}).get('clinician_disposition'), 0))
+    return ('routine', 'urgent', 'emergency')[rank]
+
+
+def model_context(ctx):
+    """Normalize demographic statements for the model without changing saved assessments."""
+    from central_park.patient_facts import AGE_STATEMENT
+    from central_park.telemetry import event
+    result = deepcopy({k: v for k, v in ctx.items() if not k.startswith('_care_')})
+    age = age_years(ctx['patient'])
+    corrections = []
+    if age is not None:
+        for note in result['assessment'].get('note', []):
+            if note.get('text', '').startswith('HPI: '):
+                def normalized(match):
+                    if int(match.group()) != age:
+                        corrections.append({'field': 'assessment.hpi.age', 'original': int(match.group()),
+                                            'authoritative': age})
+                    return str(age)
+                note['text'] = AGE_STATEMENT.sub(normalized, note['text'])
+    ctx['_care_upstream_conflicts'] = corrections
+    event('careplan.context.normalized', demographic_correction_count=len(corrections))
+    packet = result.get('supplemental_clinical_context') or {}
+    supplied = packet.get('clinician_disposition')
+    effective = effective_disposition(result['assessment'], packet)
+    if effective != effective_disposition(result['assessment']):
+        result['assessment']['priority'] = {'urgent': 'urgent', 'emergency': 'stat'}[effective]
+        result['assessment'].setdefault('note', []).append({
+            'text': 'Action: Preserve the supplied clinician disposition: ' + supplied + '.'})
+    return result

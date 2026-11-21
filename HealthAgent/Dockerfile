@@ -6,7 +6,9 @@ FROM $IMAGE
 USER root
 
 WORKDIR /home/irisowner/central-park
-COPY --chown=irisowner:irisowner . /home/irisowner/central-park
+# Keep database build layers stable when app code, reports or docs change.
+COPY --chown=irisowner:irisowner src/cls ./src/cls
+COPY --chown=irisowner:irisowner iris-config ./iris-config
 
 USER irisowner
 

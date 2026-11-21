@@ -10,6 +10,11 @@ from central_park import benchmark_context as bench, care_jobs, interview_comple
 from central_park.patients import RegistrationConflictError
 
 
+def validated(value):
+    """The app stores and hashes the validated packet (optional fields filled with None)."""
+    return bench.ClinicalPacket.model_validate(value).model_dump()
+
+
 SUBMISSION = UUID('12345678-1234-5678-1234-567812345678')
 
 
@@ -81,7 +86,7 @@ def test_repeated_completion_uuid_reuses_assessment_through_main_endpoint(
     second = main.complete_interview(req)
     assert calls == {'assessment': 1, 'enqueue': 2}
     assert first['service_request_id'] == second['service_request_id'] == 'assessment-1'
-    assert first['clinical_input_sha256'] == bench.digest(packet())
+    assert first['clinical_input_sha256'] == bench.digest(validated(packet()))
     assert first['care_plan_job_id'] == second['care_plan_job_id'] == 'job-1'
 
 
@@ -134,8 +139,8 @@ def test_questionnaire_response_stores_exact_packet_and_canonical_hash(
     qr_id = 'qr-' + SUBMISSION.hex
     stored = fhir_store['QuestionnaireResponse/' + qr_id]
     assert stored['item'][0]['answer'][0]['valueString'] == 'Mild headache.'
-    assert bench.read_packet(stored) == clinical
-    assert bench.digest(bench.read_packet(stored)) == bench.digest(clinical)
+    assert bench.read_packet(stored) == validated(clinical)
+    assert bench.digest(bench.read_packet(stored)) == bench.digest(validated(clinical))
 
 
 def test_unfinished_previous_task_cannot_replay_inference(monkeypatch, fhir_store, configured):
@@ -144,7 +149,7 @@ def test_unfinished_previous_task_cannot_replay_inference(monkeypatch, fhir_stor
     options = main.effective_options(req.care_options)
     correlation = req.correlation.model_dump(exclude_none=True)
     request_body = {'patient_id': 'p', 'transcript': transcript,
-                    'supplemental_clinical_context': packet(), 'care_options': options,
+                    'supplemental_clinical_context': validated(packet()), 'care_options': options,
                     'correlation': correlation}
     task = {'resourceType': 'Task', 'id': 'int-' + SUBMISSION.hex,
             'status': 'in-progress', 'code': {'text': interview_completion.CODE}}

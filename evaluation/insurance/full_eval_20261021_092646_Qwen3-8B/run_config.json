@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-10-21T09:32:34.638548+00:00",
+  "target": "self-hosted",
+  "endpoint": "http://localhost:9001/v1",
+  "model": "Qwen3-8B",
+  "api_key_masked": "***",
+  "system_prompt": "(agent default)",
+  "tag": null,
+  "workers": 1,
+  "price_table": {},
+  "gpu_cost_per_hour": 180.0
+}

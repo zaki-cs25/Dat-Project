@@ -1,0 +1,64 @@
+{
+  "dataset_dir": "data",
+  "output_dir": "../runs",
+  "app": {
+    "base_url": "http://localhost:8003",
+    "timeout_seconds": 180,
+    "token_env": "CP_BENCHMARK_APP_TOKEN"
+  },
+  "startup": {
+    "docker_context": "desktop-linux",
+    "compose_project": "cp-benchmark",
+    "compose_files": [
+      "docker-compose.yml",
+      "docker-compose.benchmark.yml"
+    ],
+    "minimum_free_disk_gb": 2,
+    "compose_wait_seconds": 900,
+    "readiness_timeout_seconds": 900,
+    "index_publish_timeout_seconds": 600,
+    "publish_on_attach": true
+  },
+  "models": {
+    "llm": {
+      "base_url": "http://localhost:9000/v1",
+      "container_base_url": "http://host.docker.internal:9000/v1",
+      "model": "Qwen3.6-27B",
+      "api_key_env": "CP_BENCHMARK_LLM_KEY",
+      "probe_timeout_seconds": 20
+    },
+    "embeddings": {
+      "base_url": "http://localhost:8081/v1",
+      "container_base_url": "http://host.docker.internal:8081/v1",
+      "model": "gpustack/bge-m3-GGUF:Q8_0",
+      "api_key_env": "CP_BENCHMARK_EMBEDDING_KEY",
+      "dimensions": 1024,
+      "probe": true,
+      "probe_timeout_seconds": 30,
+      "send_dimensions": false
+    }
+  },
+  "split": "all",
+  "cases": [],
+  "limit": null,
+  "run": {
+    "repetitions": 1,
+    "concurrency": 1,
+    "poll_seconds": 1,
+    "job_timeout_seconds": 900,
+    "metrics_interval_seconds": 2
+  },
+  "judge": {
+    "base_url": null,
+    "model": null,
+    "api_key_env": "CP_BENCHMARK_JUDGE_KEY",
+    "json_mode": true,
+    "token_limit_param": "max_tokens",
+    "max_tokens": 2500,
+    "temperature": 0,
+    "timeout_seconds": 180,
+    "retries": 0,
+    "concurrency": 1,
+    "extra_body": {}
+  }
+}

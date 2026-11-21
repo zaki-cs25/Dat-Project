@@ -5,13 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { DEMO_PATIENT } from "@/data/demoPatient";
-import { LANGUAGES, type Language } from "@/data/questions";
 import { registerPatient, validatePatient } from "@/api";
 import type { PatientRegistration } from "@/types";
 
 interface Props {
   initialId: string;
-  onStart: (id: string, language: Language) => void;
+  onStart: (id: string) => void;
 }
 
 export function SetupScreen({ initialId, onStart }: Props) {
@@ -21,7 +20,6 @@ export function SetupScreen({ initialId, onStart }: Props) {
   const [birthDate, setBirthDate] = useState("");
   const [gender, setGender] = useState<PatientRegistration["gender"]>("unknown");
   const registrationId = useRef<string | null>(null);
-  const [language, setLanguage] = useState<Language>("English");
   const [checking, setChecking] = useState(false);
   const [error, setError] = useState("");
   const isDemo = id.trim() === DEMO_PATIENT.id;
@@ -41,7 +39,7 @@ export function SetupScreen({ initialId, onStart }: Props) {
       } else {
         await validatePatient(patientId);
       }
-      onStart(patientId, language);
+      onStart(patientId);
     } catch (err) {
       setError((err as Error).message);
     } finally {
@@ -57,27 +55,6 @@ export function SetupScreen({ initialId, onStart }: Props) {
           A few quick questions about how you're feeling today. It takes about a minute and helps
           the clinician understand your concern before you're seen. There are no wrong answers.
         </p>
-      </div>
-
-      <div className="space-y-2">
-        <Label>Language</Label>
-        <div className="flex flex-wrap gap-1.5">
-          {LANGUAGES.map((lng) => (
-            <button
-              key={lng}
-              type="button"
-              onClick={() => setLanguage(lng)}
-              className={cn(
-                "rounded-full border px-3 py-1 text-sm transition-colors",
-                language === lng
-                  ? "border-primary bg-accent font-medium text-foreground"
-                  : "text-muted-foreground hover:border-primary/40 hover:text-foreground",
-              )}
-            >
-              {lng}
-            </button>
-          ))}
-        </div>
       </div>
 
       <form

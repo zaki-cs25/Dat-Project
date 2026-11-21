@@ -3,6 +3,12 @@
 services:
   iris:
     container_name: central-park-benchmark-iris
+    environment:
+      CP_EMBEDDING_PROVIDER: openai
+      CP_EMBEDDING_MODEL: ${CP_BENCHMARK_EMBEDDING_MODEL:-gpustack/bge-m3-GGUF:Q8_0}
+      CP_EMBEDDING_BASE_URL: ${CP_BENCHMARK_EMBEDDING_CONTAINER_URL:-http://host.docker.internal:8081/v1}
+      CP_EMBEDDING_DIMENSIONS: ${CP_BENCHMARK_EMBEDDING_DIMENSIONS:-1024}
+      CP_EMBEDDING_API_KEY: ${CP_BENCHMARK_EMBEDDING_KEY:-unused}
     ports: !override
       - "127.0.0.1:1974:1972"
       - "127.0.0.1:52776:52773"
@@ -12,6 +18,24 @@ services:
       - "127.0.0.1:8003:8000"
     environment:
       CP_BENCHMARK_API_ENABLED: "true"
+      CP_LLM_PROVIDER: openai
+      CP_LLM_BACKEND: vllm
+      CP_OPENAI_MODEL: ${CP_BENCHMARK_LLM_MODEL:-Qwen3.6-27B}
+      CP_OPENAI_BASE_URL: ${CP_BENCHMARK_LLM_CONTAINER_URL:-http://host.docker.internal:9000/v1}
+      CP_OPENAI_TOKEN_LIMIT_PARAM: max_tokens
+      CP_OPENAI_CHAT_TEMPLATE_KWARGS: '{"enable_thinking": false}'
+      CP_LLM_STREAM: "true"
+      CP_LLM_TIMEOUT_SECONDS: "180"
+      CP_LLM_TEMPERATURE: ${CP_BENCHMARK_TEMPERATURE:-0}
+      CP_LLM_TOP_P: ${CP_BENCHMARK_TOP_P:-1}
+      CP_LLM_SEED: ${CP_BENCHMARK_SEED:-42}
+      CP_CARE_GENERATION_MODE: enriched
+      CP_LLM_API_KEY: ${CP_BENCHMARK_LLM_KEY:-unused}
+      CP_EMBEDDING_MODEL: ${CP_BENCHMARK_EMBEDDING_MODEL:-gpustack/bge-m3-GGUF:Q8_0}
+      CP_EMBEDDING_BASE_URL: ${CP_BENCHMARK_EMBEDDING_CONTAINER_URL:-http://host.docker.internal:8081/v1}
+      CP_EMBEDDING_DIMENSIONS: ${CP_BENCHMARK_EMBEDDING_DIMENSIONS:-1024}
+      CP_EMBEDDING_METRICS_URL: http://host.docker.internal:8081/metrics
+      CP_SERVING_METRICS_URL: http://host.docker.internal:9000/metrics
       CP_FHIR_BASE_URL: http://iris:52773/csp/healthshare/centralpark/fhir/r4
       CP_IRIS_REST_BASE_URL: http://iris:52773/centralpark
   ui:

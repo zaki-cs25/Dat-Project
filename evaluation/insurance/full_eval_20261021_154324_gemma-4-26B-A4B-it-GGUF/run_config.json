@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-10-21T11:41:46.903689+00:00",
+  "target": "self-hosted",
+  "endpoint": "http://localhost:8001/v1",
+  "model": "Gemma-4-26B-A4B",
+  "api_key_masked": "***",
+  "system_prompt": "(agent default)",
+  "tag": null,
+  "workers": 8,
+  "price_table": {},
+  "gpu_cost_per_hour": 180.0
+}

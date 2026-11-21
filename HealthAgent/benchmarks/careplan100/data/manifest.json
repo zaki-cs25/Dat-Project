@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "dataset_id": "careplan100-v1.0",
+  "frozen_at": "2026-10-24T14:16:04.306032+00:00",
+  "case_count": 100,
+  "criterion_count": 500,
+  "group_counts": {
+    "chronic": 30,
+    "injury": 20,
+    "opd": 50
+  },
+  "split_counts": {
+    "development": 20,
+    "evaluation": 80
+  },
+  "disposition_counts": {
+    "routine": 87,
+    "urgent": 12,
+    "emergency": 1
+  },
+  "authoring": {
+    "opd": "gpt-6-astra /root/astra_opd100",
+    "chronic_and_injury": "gpt-6-astra /root/astra_chronic_injury100",
+    "independent_critique": "gpt-6-astra /root/astra_dataset_review100"
+  },
+  "review_status": "synthetic-Astra-authored-and-critiqued; independent clinical review pending",
+  "scope": "adult English enriched-only nonprescribing clinician-facing care planning",
+  "pass_rule": {
+    "minimum_score": 80,
+    "completed_generation": true,
+    "verified_inputs": true,
+    "no_critical_failure": true
+  },
+  "split_limitations": "Public stratified evaluation split; conditions and some guideline scaffolds overlap. Not hidden or independently sampled clinical encounters.",
+  "file_sha256": {
+    "README.md": "349c2758d51c3cbf8045e654ebb46585efaea1bafaedd4c0880aaee6f6ae4132",
+    "cases/chronic.jsonl": "2b1abaf92dc9f5ddcd4667833185259db6039c2962156bf19cd324e8ad0eeaad",
+    "cases/injury.jsonl": "bc93334cc883bdcf8eee1322953da7f58d1a9a097a8f4119b5ea2ac7c1dd906f",
+    "cases/opd.jsonl": "40059a9c491731c1d5e18176053a22871adddbb44b50e01c7d20c2c57758f606",
+    "dataset-review.json": "4c59d6c7193826992a662e026406ef0c03e7dfb1eb9ea6fc52245e431cc50736",
+    "rubrics/chronic.jsonl": "505c76ab9795ff1871e8bb8e726c6b70952f517d05ebbefe0d683779bfcd4c5e",
+    "rubrics/injury.jsonl": "dc2189159c4f80aa4566eae5c0691246c2251c35bacae4b0cd352655d19c3f75",
+    "rubrics/opd.jsonl": "7a32dc3c2ca9da7e928d24fed9de1adb016122515f3673a58d6612b24865daca",
+    "sources-chronic-injury.json": "bdd343f0d19ea9e9094fa78f966ab9407e38b0a17b1ef5c2b3fc070834e71972",
+    "sources-opd.json": "5bb828828dd5eea95d177b6bcf6c24c970eda14f368f73752be47ffb650433c6"
+  },
+  "dataset_sha256": "59f35edf6979ee88789b83e784e7f1e1c270db0f6267dbc8e5a84305ba0b21fb"
+}

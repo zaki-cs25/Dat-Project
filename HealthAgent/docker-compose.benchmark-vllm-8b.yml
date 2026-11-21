@@ -1,0 +1,7 @@
+# Additional override for the CarePlan100 run against vLLM serving Qwen3-8B BF16
+# on host port 9000. Layer after docker-compose.benchmark.yml (which already sets
+# backend vllm, port 9000 metrics and sampling); only declared serving metadata changes.
+services:
+  agent:
+    environment:
+      CP_SERVING_METADATA: '{"server_version":"vLLM 0.28.0","quantization":"none (BF16 safetensors)","weights_identity":"Qwen/Qwen3-8B BF16 safetensors","context_limit_tokens":40960,"parallelism":"1x A100 80GB, tensor-parallel 1, gpu-memory-utilization 0.90","cache_policy":"default KV cache","hardware":"NVIDIA A100 80GB (Slurm a100_praveent)"}'

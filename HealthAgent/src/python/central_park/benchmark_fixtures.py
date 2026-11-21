@@ -10,6 +10,7 @@ from uuid import UUID
 from central_park import benchmark_context, care_context
 from central_park.care_catalogue import BASE as CATALOGUE
 from central_park.patients import RegistrationConflictError
+from central_park.patient_facts import AGE_EXT
 
 FIXTURE_SYSTEM = 'urn:central-park:benchmark-fixture'
 AS_OF_EXT = 'https://centralpark.example/fhir/StructureDefinition/benchmark-as-of-date'
@@ -68,18 +69,6 @@ def _condition(label: str) -> dict | None:
         return None
     tag, _ = next(iter(matches))
     return CATALOGUE[tag]
-
-
-def _age_birth_date(age: int, as_of: date) -> str:
-    year = as_of.year - age
-    day = min(as_of.day, 28) if as_of.month == 2 and as_of.day == 29 else as_of.day
-    try:
-        born = date(year, as_of.month, day)
-    except ValueError:  # Leap-day reference date in a non-leap birth year.
-        born = date(year, 2, 28)
-    if born > as_of:
-        born = born.replace(year=born.year - 1)
-    return born.isoformat()
 
 
 def _reference_date(patient: dict) -> date | None:
@@ -161,7 +150,8 @@ def _reported_rows(packet: dict, patient_id: str, fixture_id: UUID, field: str) 
                 'status': 'unknown',
                 'medicationCodeableConcept': {'text': label},
                 'informationSource': {'reference': f'Patient/{patient_id}'},
-                'note': [{'text': 'Patient-reported medication; current use and status are not confirmed.'}],
+                'note': [{'text': 'Patient-reported medication history. Resource status is unspecified; '
+                                  'this does not negate the supplied medication history.'}],
             })
         else:
             row.update({
@@ -215,19 +205,18 @@ def provision(fixture_id: UUID, packet: dict) -> dict:
                 raise RegistrationConflictError('Stored benchmark fixture has no pinned reference date')
             as_of = pinned
         else:
-            as_of = date.today()
-        birth_date = _age_birth_date(packet['patient']['age'], as_of)
+            as_of = date.fromisoformat(packet['as_of_date']) if packet.get('as_of_date') else date.today()
 
         patient = {
             'resourceType': 'Patient', 'id': patient_id, 'active': True,
             'identifier': [{'system': FIXTURE_SYSTEM, 'value': str(fixture_id)}],
             'name': [{'use': 'usual', 'text': f'Synthetic benchmark patient {fixture_id.hex[:8]}'}],
-            'birthDate': birth_date,
         }
         sex = packet['patient']['sex'].casefold()
         patient['gender'] = {'woman': 'female', 'man': 'male'}.get(
             sex, sex if sex in {'female', 'male', 'other', 'unknown'} else 'unknown')
-        patient['extension'] = [{'url': AS_OF_EXT, 'valueDate': as_of.isoformat()}]
+        patient['extension'] = [{'url': AS_OF_EXT, 'valueDate': as_of.isoformat()},
+                                {'url': AGE_EXT, 'valueInteger': packet['patient']['age']}]
         benchmark_context.attach_packet(patient, packet)
 
         resources = [patient, *_conditions(packet, patient_id, fixture_id),

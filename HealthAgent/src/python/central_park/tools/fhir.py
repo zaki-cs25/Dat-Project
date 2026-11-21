@@ -161,6 +161,7 @@ def _entries(bundle: dict) -> list[dict]:
 
 
 def _trim_patient(p: dict) -> dict:
+    from central_park.patient_facts import demographic_facts
     name = ""
     for n in p.get("name", []):
         name = n.get('text') or ' '.join([*n.get('given', []), n.get('family', '')]).strip()
@@ -171,6 +172,7 @@ def _trim_patient(p: dict) -> dict:
         "name": name,
         "gender": p.get("gender"),
         "birthDate": p.get("birthDate"),
+        **demographic_facts(p),
     }
 
 
@@ -598,6 +600,7 @@ def get_patient_context(patient_id: str) -> PatientContext:
 
     return {
         "patient": _trim_patient(patient_resp.json()),
+        "patient_facts": _trim_patient(patient_resp.json()),
         "conditions": [_trim_condition(r) for r in _entries(conditions_resp.json())],
         "medications": [_trim_medication(r) for r in _entries(meds_resp.json())]
         + [_trim_medication(r) for r in _entries(statements_resp.json())],

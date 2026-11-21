@@ -115,7 +115,7 @@ def enqueue(patient_id, questionnaire_response_id, assessment_id, *, options=Non
             if frozen.get('clinical_input_sha256') and frozen['clinical_input_sha256'] != bench.digest(packet):
                 raise ValueError('Supplemental input differs from completed interview')
             if fhir.age_years(frozen['patient']) != packet['patient']['age']:
-                raise ValueError('Supplemental age conflicts with patient birth date')
+                raise ValueError('Supplemental age conflicts with the authoritative patient age')
             frozen.update(supplemental_clinical_context=packet, clinical_input_sha256=bench.digest(packet))
         identity = serving_identity()
         task = {'resourceType': 'Task', 'id': job_id, 'status': 'requested', 'intent': 'proposal',
@@ -149,7 +149,8 @@ def record_enqueue_failure(assessment_id, reason):
 
 def view(task):
     data = metadata(task)
-    return {'job_id': task['id'], **{k: v for k, v in data.items() if k not in ('frozen_context', 'trace')}}
+    return {'job_id': task['id'], **{k: v for k, v in data.items()
+                                   if k not in ('frozen_context', 'trace', 'attempt_diagnostics', 'upstream_fact_conflicts')}}
 
 
 def transition(task, status, reason=None):
@@ -241,7 +242,7 @@ def process(task):
             # Only application-owned content is saved here, never invalid model output.
             from central_park.careplan import urgent_activity
             if ctx and not fhir.read('CarePlan', task['id'], optional=True):
-                urgent = urgent_activity(ctx['assessment'])
+                urgent = urgent_activity(ctx['assessment'], ctx.get('supplemental_clinical_context'))
                 if urgent:
                     save_plan(task, {'title': 'Urgent assessment draft', 'activities': [a.model_dump() for a in urgent],
                                      'condition_ids': [], 'evidence_sources': [], 'missing_information': [],
@@ -258,6 +259,9 @@ def process(task):
             latest = metadata(task)
             latest.update(finished_at=now(), processing_seconds=perf_counter() - operation_started,
                           trace_ready=True)
+            if ctx is not None and load().benchmark_api_enabled:
+                latest['attempt_diagnostics'] = ctx.get('_care_attempt_diagnostics', [])
+                latest['upstream_fact_conflicts'] = ctx.get('_care_upstream_conflicts', [])
             latest['trace'] = events
             attach(task, latest)
             fhir.put(task)

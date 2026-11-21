@@ -8,7 +8,7 @@ from contextvars import ContextVar
 from datetime import datetime, timezone
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 PACKET_EXT = 'https://centralpark.example/fhir/StructureDefinition/clinical-input'
 CORRELATION: ContextVar[dict] = ContextVar('benchmark_correlation', default={})
@@ -42,6 +42,17 @@ class ClinicalPacket(Strict):
     narrative: str = Field(min_length=1, max_length=60000)
     missing_information: list[str] = Field(max_length=100)
     request: str = Field(min_length=1, max_length=4000)
+    as_of_date: str | None = None
+    clinician_disposition: Literal['routine', 'urgent', 'emergency'] | None = None
+
+    @field_validator('as_of_date')
+    @classmethod
+    def valid_reference_date(cls, value):
+        if value is not None:
+            from datetime import date
+            if date.fromisoformat(value).isoformat() != value:
+                raise ValueError('as_of_date must be an ISO calendar date')
+        return value
 
 
 class CareOptions(Strict):

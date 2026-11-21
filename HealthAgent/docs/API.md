@@ -137,3 +137,13 @@ Boundary audits verify the full packet at generation/review and export payload d
 With `CP_BENCHMARK_API_ENABLED=true`, `GET /benchmark/serving/profile` returns the effective secret-free profile and hash; `/benchmark/serving/capabilities` probes the configured model list; `/benchmark/serving/metrics` collects chat, embedding and host snapshots. Capabilities and metrics use read-only requests and perform no inference. See [the measurement contract](SERVING_BENCHMARK.md) for configuration, origins, units, unknowns and limitations.
 
 Request/job/submission traces now include nested application spans and per-HTTP-attempt LLM events. Use `llm.attempt.finished` for token accounting, `llm.call.finished` for logical latency including retries, and `llm.retry.finished` for backoff. Care repairs are identified separately by `generation_attempt`. Count each usage record once; parent/child spans overlap. Job trace export includes queue/start/finish times and `trace_ready`. Poll until that flag is true before archiving a completed job's final trace.
+
+## CarePlan100 additions (2026-10-24)
+
+Supplemental clinical packets may include `as_of_date` (ISO date) and `clinician_disposition` (`routine`, `urgent`, `emergency`). The latter is a supplied clinician instruction, not a benchmark triage label to predict; it can raise the care-planning urgency floor and cannot downgrade an existing urgent assessment.
+
+Synthetic benchmark Patients now retain reported age and reference-date extensions without inventing an exact birth date. The same deterministic age facts reach assessment and care models. Existing recorded birth dates remain usable for real Patients. A model-facing assessment view corrects conflicting demographic age statements while retaining the original frozen FHIR context and recording upstream conflicts.
+
+Accurate factual mention of supplied medication history is allowed. New drug/class/dose recommendations and medication start/stop/change instructions remain prohibited. Laboratory concentrations are not medication doses. The local field-aware guard is a bounded heuristic supplemented by model review, not a complete prescribing detector.
+
+When the benchmark API is enabled, `/benchmark/careplans/{job_id}/trace` also returns `attempt_diagnostics` and `upstream_fact_conflicts`. Diagnostics can contain rejected candidate prose and raw synthetic model/reviewer output. They are excluded from ordinary job views and normal telemetry. Enable these routes only on the isolated local benchmark deployment.
